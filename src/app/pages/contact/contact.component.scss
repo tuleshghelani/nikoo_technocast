@@ -1,0 +1,90 @@
+$primary-orange: #EC6945;
+$primary-dark: #2B2A29;
+$light-bg: #f8f9fa;
+$white: #ffffff;
+
+.contact-info {
+    background: $white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    
+    h3 {
+      color: $primary-dark;
+      margin-bottom: 20px;
+    }
+    
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 25px;
+      
+      i {
+        color: $primary-orange;
+        font-size: 24px;
+        margin-right: 15px;
+        margin-top: 5px;
+      }
+      
+      h5 {
+        margin-bottom: 5px;
+        color: $primary-dark;
+      }
+      
+      p {
+        margin-bottom: 0;
+        color: rgba($primary-dark, 0.7);
+      }
+    }
+    
+    .social-links {
+      a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        background: rgba($primary-orange, 0.1);
+        color: $primary-orange;
+        border-radius: 50%;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: $primary-orange;
+          color: $white;
+        }
+      }
+    }
+  }
+  
+  .contact-form {
+    background: $white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    
+    .form-group {
+      margin-bottom: 20px;
+      
+      label {
+        color: $primary-dark;
+        margin-bottom: 8px;
+      }
+      
+      .form-control {
+        border: 1px solid rgba($primary-dark, 0.1);
+        border-radius: 5px;
+        padding: 12px;
+        
+        &:focus {
+          border-color: $primary-orange;
+          box-shadow: none;
+        }
+      }
+    }
+    
+    button {
+      padding: 12px 30px;
+    }
+  }

@@ -1,0 +1,38 @@
+.navbar {
+  background: transparent;
+  transition: all 0.3s ease;
+  padding: 20px 0;
+  
+  &.scrolled {
+    background: $white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px 0;
+  }
+  
+  .navbar-brand {
+    img {
+      height: 40px;
+    }
+  }
+  
+  .nav-link {
+    color: $primary-dark;
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: color 0.3s ease;
+    
+    &:hover, &.active {
+      color: $primary-orange;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: $white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+}

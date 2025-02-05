@@ -1,0 +1,78 @@
+<app-banner title="Our Products"></app-banner>
+<!-- [breadcrumb]="['Home', 'Products']" -->
+
+<section class="products-section section-padding">
+  <div class="container">
+    <!-- Product Categories -->
+    <div class="product-categories mb-5">
+      <div class="row">
+        <div class="col-12">
+          <ul class="nav nav-pills justify-content-center" id="productTabs">
+            <li class="nav-item">
+              <a class="nav-link active" data-bs-toggle="pill" href="#all">All Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="pill" href="#category1">Category 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="pill" href="#category2">Category 2</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="all">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+            <div class="product-card">
+              <div class="product-image">
+                <img src="assets/images/product1.jpg" alt="Product">
+                <div class="overlay">
+                  <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#productModal1">
+                    View Details
+                  </button>
+                </div>
+              </div>
+              <div class="product-info">
+                <h4>Product Name</h4>
+                <p>Brief description of the product and its applications</p>
+              </div>
+            </div>
+          </div>
+          <!-- Repeat for more products -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Product Modal -->
+<div class="modal fade" id="productModal1" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Product Name</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="assets/images/product1.jpg" alt="Product" class="img-fluid">
+          </div>
+          <div class="col-md-6">
+            <h4>Specifications</h4>
+            <ul class="specifications-list">
+              <li><strong>Material:</strong> Steel</li>
+              <li><strong>Dimensions:</strong> Custom</li>
+              <li><strong>Finish:</strong> Polished</li>
+            </ul>
+            <p>Detailed product description and features...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
