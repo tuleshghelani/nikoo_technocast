@@ -2,6 +2,7 @@ $primary-orange: #EC6945;
 $primary-dark: #2B2A29;
 $light-bg: #f8f9fa;
 $white: #ffffff;
+$light-orange: #FED8B1;
 
 .page-banner {
     position: relative;
@@ -20,8 +21,8 @@ $white: #ffffff;
       bottom: 0;
       background: linear-gradient(
         45deg,
-        rgba($primary-dark, 0.9),
-        rgba($primary-orange, 0.8)
+        rgba(#B1D7FE, 0.9),
+        rgba($primary-dark, 0.8)
       );
       z-index: 1;
     }

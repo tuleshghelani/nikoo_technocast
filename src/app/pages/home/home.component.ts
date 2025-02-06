@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Swiper from 'swiper';
+import { Autoplay, EffectFade } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 
 @Component({
   selector: 'app-home',
@@ -10,35 +13,70 @@ import Swiper from 'swiper';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  ngOnInit() {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    // Hero animation
-    gsap.from('.hero-content', {
-      opacity: 0,
-      y: 100,
-      duration: 1,
-      delay: 0.5
+export class HomeComponent implements AfterViewInit {
+  private swiper!: Swiper;
+
+  ngAfterViewInit() {
+    this.initSwiper();
+    this.initThumbnails();
+  }
+
+  private initSwiper() {
+    this.swiper = new Swiper('.hero-slider', {
+      modules: [Autoplay, EffectFade],
+      effect: 'fade',
+      loop: true,
+      speed: 2000,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: true,
+      },
     });
 
-    // Initialize testimonials slider
-    new Swiper('.testimonials-slider', {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true
-      },
-      breakpoints: {
-        768: {
-          slidesPerView: 2
-        },
-        1024: {
-          slidesPerView: 3
-        }
-      }
+    // Animate content on slide change
+    this.swiper.on('slideChangeTransitionStart', () => {
+      this.updateThumbnails();
+      this.animateContent();
     });
+  }
+
+  private initThumbnails() {
+    const thumbs = document.querySelectorAll('.thumb');
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener('click', () => {
+        this.swiper.slideTo(index);
+      });
+    });
+  }
+
+  private updateThumbnails() {
+    const thumbs = document.querySelectorAll('.thumb');
+    thumbs.forEach((thumb, index) => {
+      thumb.classList.toggle('active', index === this.swiper.realIndex);
+    });
+  }
+
+  private animateContent() {
+    const timeline = gsap.timeline();
+    
+    timeline
+      .fromTo('.hero-content > *', 
+        { y: 100, opacity: 0 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: 0.7, 
+          stagger: 0.2 
+        }
+      )
+      .fromTo('.hero-image-wrapper',
+        { x: 120, opacity: 0 },
+        { 
+          x: 0, 
+          opacity: 1, 
+          duration: 1 
+        },
+        "-=0.5"
+      );
   }
 }
