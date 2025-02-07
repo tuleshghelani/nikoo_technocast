@@ -5,7 +5,7 @@ $light-bg: #f8f9fa;
 $white: #ffffff;
 
 // Variables for logo sizes
-$logo-height-desktop: 50px;
+$logo-height-desktop: 80px;
 $logo-height-tablet: 45px;
 $logo-height-mobile: 40px;
 
@@ -34,7 +34,7 @@ $logo-height-mobile: 40px;
     }
 
     .navbar-brand img {
-      // height: calc($logo-height-desktop - 5px); // Slightly smaller when scrolled
+      height: calc($logo-height-desktop - 15px); // Slightly smaller when scrolled
     }
   }
 

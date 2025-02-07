@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BannerComponent } from '../../components/shared/banner/banner.component';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-infrastructure',
@@ -9,5 +10,11 @@ import { BannerComponent } from '../../components/shared/banner/banner.component
   styleUrl: './infrastructure.component.scss'
 })
 export class InfrastructureComponent {
-
+  ngOnInit() {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+  }
 }

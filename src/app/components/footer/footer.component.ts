@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +8,15 @@ import { Component } from '@angular/core';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
+  currentYear: number = new Date().getFullYear();
 
+  ngOnInit() {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+    // Any additional initialization
+  }
 }

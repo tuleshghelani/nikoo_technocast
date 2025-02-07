@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BannerComponent } from '../../components/shared/banner/banner.component';
 import { FormsModule } from '@angular/forms';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-contact',
@@ -20,6 +21,14 @@ export class ContactComponent {
     message: ''
   };
   
+  ngOnInit() {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+  }
+
   onSubmit(){
 
   }

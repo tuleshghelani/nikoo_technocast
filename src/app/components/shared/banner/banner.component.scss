@@ -6,7 +6,7 @@ $light-orange: #FED8B1;
 
 .page-banner {
     position: relative;
-    padding: 120px 0 100px;
+    padding: 100px 0 250px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -35,12 +35,12 @@ $light-orange: #FED8B1;
       color: $white;
       
       h1 {
+        color: $primary-dark;
         font-size: 3rem;
         font-weight: 700;
-        margin-bottom: 15px;
+        margin: 50px auto 25px auto;
         text-transform: uppercase;
         letter-spacing: 1px;
-        
         @media (max-width: 768px) {
           font-size: 2.2rem;
         }
