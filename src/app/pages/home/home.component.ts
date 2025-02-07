@@ -1,4 +1,5 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { gsap } from 'gsap';
 import Swiper from 'swiper';
 import { Autoplay, EffectFade } from 'swiper/modules';
@@ -16,9 +17,13 @@ import 'swiper/css/effect-fade';
 export class HomeComponent implements AfterViewInit {
   private swiper!: Swiper;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngAfterViewInit() {
-    this.initSwiper();
-    this.initThumbnails();
+    if (isPlatformBrowser(this.platformId)) {
+      this.initSwiper();
+      this.initThumbnails();
+    }
   }
 
   private initSwiper() {
@@ -62,20 +67,11 @@ export class HomeComponent implements AfterViewInit {
     timeline
       .fromTo('.hero-content > *', 
         { y: 100, opacity: 0 },
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.7, 
-          stagger: 0.2 
-        }
+        { y: 0, opacity: 1, duration: 0.7, stagger: 0.2 }
       )
       .fromTo('.hero-image-wrapper',
         { x: 120, opacity: 0 },
-        { 
-          x: 0, 
-          opacity: 1, 
-          duration: 1 
-        },
+        { x: 0, opacity: 1, duration: 1 },
         "-=0.5"
       );
   }

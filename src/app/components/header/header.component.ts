@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, PLATFORM_ID, Inject } from '@angular/core';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { isPlatformBrowser } from '@angular/common';
+import { fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +12,12 @@ import { filter } from 'rxjs/operators';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   isScrolled = false;
   isHomePage = false;
   isMobile:any
 
-  constructor(private router: Router) {
+  constructor(private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {
     // Check if we're on home page whenever route changes
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
@@ -36,6 +38,18 @@ export class HeaderComponent {
   onWindowScroll() {
     this.isScrolled = window.scrollY > 50;
     this.updateNavStyles();
+  }
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      fromEvent(window, 'scroll')
+        .pipe(
+          filter(() => isPlatformBrowser(this.platformId))
+        )
+        .subscribe(() => {
+          this.updateNavStyles();
+        });
+    }
   }
 
   private updateNavStyles() {
