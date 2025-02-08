@@ -89,18 +89,43 @@ $white: #ffffff;
     }
 
     .custom-btn {
-      background: #ff3e3e;
-      color: #fff;
+      position: relative;
+      padding: 12px 32px;
+      background: $primary-orange-gradient;
+      color: $primary-white;
       border: none;
-      padding: 15px 40px;
-      border-radius: 30px;
-      font-size: 16px;
+      border-radius: 50px;
       font-weight: 600;
-      transition: all 0.3s ease;
-
+      font-size: 1rem;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 20px rgba($primary-orange, 0.2);
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+        transform: translateX(-100%) rotate(45deg);
+        transition: transform 0.6s ease;
+      }
+      
       &:hover {
-        background: darken(#ff3e3e, 10%);
-        transform: translateY(-2px);
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba($primary-orange, 0.3);
+        background: darken($primary-orange, 5%);
+        
+        &::before {
+          transform: translateX(100%) rotate(45deg);
+        }
+      }
+      
+      &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 5px 15px rgba($primary-orange, 0.2);
       }
     }
   }
@@ -219,6 +244,11 @@ $white: #ffffff;
         width: 50px;
         height: 50px;
       }
+    }
+
+    .custom-btn {
+      padding: 10px 28px;
+      font-size: 0.95rem;
     }
   }
 }
@@ -463,5 +493,244 @@ $white: #ffffff;
   .highlight::after {
     transform: scaleX(1);
     transform-origin: left;
+  }
+}
+
+.about-preview {
+  position: relative;
+  background: linear-gradient(135deg, $primary-white 0%, $primary-orange-lightest 100%);
+  
+  .about-image {
+    position: relative;
+    padding: 20px;
+    
+    .main-image {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 20px 40px rgba($primary-dark, 0.1);
+    }
+    
+    .experience-badge {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: $primary-orange-gradient;
+      color: $primary-white;
+      padding: 20px 30px;
+      border-radius: 15px;
+      transform: translateY(30%) translateX(-20%);
+      box-shadow: 0 15px 30px rgba($primary-orange, 0.2);
+      
+      .years {
+        font-size: 2.5rem;
+        font-weight: 700;
+        display: block;
+        line-height: 1;
+      }
+      
+      .text {
+        font-size: 1rem;
+        opacity: 0.9;
+      }
+    }
+    
+    .pattern-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient($primary-orange-lightest 2px, transparent 2px);
+      background-size: 30px 30px;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+  }
+  
+  .about-content {
+    padding-left: 50px;
+    
+    .section-subtitle {
+      color: $primary-orange;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .section-title {
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: $primary-dark;
+    }
+    
+    .description {
+      color: $primary-dark-light;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    
+    .achievements-row {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 30px;
+      
+      .achievement-item {
+        .number {
+          font-size: 2rem;
+          font-weight: 700;
+          color: $primary-orange;
+          display: block;
+          line-height: 1;
+        }
+        
+        p {
+          margin: 5px 0 0;
+          color: $primary-dark-light;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 991px) {
+  .about-preview {
+    .about-content {
+      padding-left: 0;
+      margin-top: 50px;
+      text-align: center;
+      
+      .achievements-row {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .about-preview {
+    .about-image {
+      .experience-badge {
+        padding: 15px 25px;
+        
+        .years {
+          font-size: 2rem;
+        }
+      }
+    }
+    
+    .about-content {
+      .achievements-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+    }
+  }
+}
+
+.btn-primary-gradient {
+  position: relative;
+  padding: 15px 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  
+  .btn-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: $primary-white;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    z-index: 2;
+    transition: all 0.3s ease;
+    
+    .btn-text {
+      transform: translateX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .btn-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateX(-5px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+  }
+  
+  .btn-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $primary-orange-gradient;
+    border-radius: 50px;
+    z-index: 1;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 20px rgba($primary-orange, 0.2);
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba($primary-dark, 0.15), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+  }
+  
+  &:hover {
+    .btn-content {
+      .btn-text {
+        transform: translateX(-10px);
+      }
+      
+      .btn-icon {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    .btn-background {
+      transform: scale(1.02);
+      box-shadow: 0 15px 30px rgba($primary-orange, 0.3);
+      
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+  
+  &:active {
+    .btn-background {
+      transform: scale(0.98);
+      box-shadow: 0 5px 15px rgba($primary-orange, 0.2);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .btn-primary-gradient {
+    padding: 12px 32px;
+    
+    .btn-content {
+      font-size: 0.95rem;
+      gap: 8px;
+    }
   }
 }

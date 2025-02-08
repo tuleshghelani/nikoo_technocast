@@ -1,1 +1,12 @@
-<p>product-card works!</p>
+<div class="product-card" data-aos="fade-up">
+  <div class="product-image">
+    <img [src]="product.image" [alt]="product.name">
+    <div class="overlay">
+      <button class="view-details-btn">View Details</button>
+    </div>
+  </div>
+  <div class="product-info">
+    <h4>{{product.name}}</h4>
+    <p>{{product.description}}</p>
+  </div>
+</div>

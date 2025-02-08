@@ -8,19 +8,46 @@ import { takeUntil, debounceTime } from 'rxjs/operators';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
+import { CommonModule } from '@angular/common';
+import { ProductCardComponent } from '../../components/shared/product-card/product-card.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, ProductCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
   private swiper!: Swiper;
+  yearsOfExperience: number;
+  products = [
+    {
+      image: 'assets/home/casting_product_3.jpeg',
+      name: 'Brake Components',
+      description: 'High-quality brake system components for heavy vehicles'
+    },
+    {
+      image: 'assets/home/casting_product_3.jpeg',
+      name: 'Valve Components',
+      description: 'Precision-engineered valve components for industrial applications'
+    },
+    {
+      image: 'assets/home/casting_product_3.jpeg',
+      name: 'Machine Parts',
+      description: 'Custom machine parts with superior durability'
+    },
+    {
+      image: 'assets/home/casting_product_3.jpeg',
+      name: 'Compressor Components',
+      description: 'Reliable components for industrial compressors'
+    }
+  ];
   
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.yearsOfExperience = new Date().getFullYear() - 2005;
+  }
 
   ngOnInit(): void {
     this.initSwiper();
@@ -62,7 +89,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       });
     });
     
-    // Set initial active state
     this.updateThumbnailActive();
   }
 
