@@ -34,7 +34,9 @@ $logo-height-mobile: 40px;
     }
 
     .navbar-brand img {
-      height: calc($logo-height-desktop - 15px); // Slightly smaller when scrolled
+      // height: calc($logo-height-desktop - 15px); // Slightly smaller when scrolled
+      height: 75px;
+      width: 250px;
     }
   }
 
