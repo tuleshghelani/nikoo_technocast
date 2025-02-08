@@ -786,3 +786,135 @@ $white: #ffffff;
     }
   }
 }
+
+.infrastructure-section {
+  background: linear-gradient(135deg, $white 0%, rgba($primary-orange, 0.05) 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba($primary-orange, 0.1) 0%, rgba($primary-orange, 0.05) 100%);
+    z-index: 0;
+  }
+
+  &::before {
+    top: -150px;
+    left: -150px;
+  }
+
+  &::after {
+    bottom: -150px;
+    right: -150px;
+  }
+
+  .infrastructure-card {
+    background: $white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba($primary-dark, 0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba($primary-dark, 0.1);
+
+      .card-image {
+        .overlay {
+          opacity: 1;
+        }
+
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    .card-image {
+      position: relative;
+      overflow: hidden;
+      height: 220px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba($primary-dark, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+
+        .icon {
+          width: 60px;
+          height: 60px;
+          background: $primary-orange;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: $white;
+          font-size: 1.5rem;
+          transform: translateY(20px);
+          transition: transform 0.3s ease;
+        }
+      }
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      text-align: center;
+
+      h3 {
+        color: $primary-dark;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      p {
+        color: rgba($primary-dark, 0.7);
+        margin-bottom: 0;
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 1199px) {
+  .infrastructure-card .card-image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 991px) {
+  .infrastructure-card {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .infrastructure-card .card-image {
+    height: 180px;
+  }
+}
