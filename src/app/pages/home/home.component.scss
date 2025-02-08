@@ -497,137 +497,189 @@ $white: #ffffff;
 }
 
 .about-preview {
+  padding: 100px 0;
   position: relative;
-  background: linear-gradient(135deg, $primary-white 0%, $primary-orange-lightest 100%);
-  
-  .about-image {
-    position: relative;
-    padding: 20px;
-    
-    .main-image {
-      width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 20px 40px rgba($primary-dark, 0.1);
+  background: linear-gradient(135deg, $primary-white 0%, rgba($primary-orange, 0.05) 100%);
+  overflow: hidden;
+
+  .section-subtitle {
+    color: $primary-orange;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    color: $primary-dark;
+
+    .highlight {
+      color: $primary-orange;
+      position: relative;
+      display: inline-block;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: rgba($primary-orange, 0.2);
+        z-index: -1;
+      }
     }
-    
+  }
+
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba($primary-dark, 0.7);
+    margin-bottom: 2rem;
+  }
+
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+
+    .achievement-item {
+      text-align: center;
+      
+      .achievement-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 1rem;
+        background: linear-gradient(135deg, $primary-orange 0%, darken($primary-orange, 10%) 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        i {
+          color: $white;
+          font-size: 1.5rem;
+        }
+      }
+
+      .number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: $primary-dark;
+        display: block;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        color: rgba($primary-dark, 0.7);
+        margin: 0;
+      }
+    }
+  }
+
+  .about-image-wrapper {
+    position: relative;
+    padding: 2rem;
+
+    .main-image {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba($primary-dark, 0.1);
+
+      img {
+        width: 100%;
+        height: auto;
+        transform: scale(1.01);
+        transition: transform 0.5s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+
     .experience-badge {
       position: absolute;
       bottom: 0;
       right: 0;
-      background: $primary-orange-gradient;
-      color: $primary-white;
-      padding: 20px 30px;
+      background: linear-gradient(135deg, $primary-orange 0%, darken($primary-orange, 10%) 100%);
+      color: $white;
+      padding: 1.5rem 2rem;
       border-radius: 15px;
       transform: translateY(30%) translateX(-20%);
       box-shadow: 0 15px 30px rgba($primary-orange, 0.2);
-      
+
       .years {
         font-size: 2.5rem;
         font-weight: 700;
         display: block;
         line-height: 1;
       }
-      
+
       .text {
         font-size: 1rem;
         opacity: 0.9;
       }
     }
-    
-    .pattern-overlay {
+
+    .shape-pattern {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: radial-gradient($primary-orange-lightest 2px, transparent 2px);
+      background-image: radial-gradient($primary-orange 2px, transparent 2px);
       background-size: 30px 30px;
-      opacity: 0.3;
+      opacity: 0.1;
       pointer-events: none;
     }
-  }
-  
-  .about-content {
-    padding-left: 50px;
-    
-    .section-subtitle {
-      color: $primary-orange;
-      font-weight: 600;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-      display: block;
-    }
-    
-    .section-title {
-      font-size: clamp(2rem, 3vw, 2.5rem);
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: $primary-dark;
-    }
-    
-    .description {
-      color: $primary-dark-light;
-      line-height: 1.8;
-      margin-bottom: 30px;
-    }
-    
-    .achievements-row {
-      display: flex;
-      gap: 30px;
-      margin-bottom: 30px;
-      
-      .achievement-item {
-        .number {
-          font-size: 2rem;
-          font-weight: 700;
-          color: $primary-orange;
-          display: block;
-          line-height: 1;
-        }
-        
-        p {
-          margin: 5px 0 0;
-          color: $primary-dark-light;
-          font-size: 0.9rem;
-        }
-      }
+
+    .floating-shape {
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 150px;
+      height: 150px;
+      background: rgba($primary-orange, 0.1);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      z-index: -1;
+      animation: float 6s ease-in-out infinite;
     }
   }
 }
 
-// Responsive styles
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-20px, 20px) rotate(5deg); }
+}
+
 @media (max-width: 991px) {
   .about-preview {
-    .about-content {
-      padding-left: 0;
-      margin-top: 50px;
-      text-align: center;
-      
-      .achievements-row {
-        justify-content: center;
-      }
+    padding: 60px 0;
+
+    .achievements-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
     }
   }
 }
 
 @media (max-width: 767px) {
   .about-preview {
-    .about-image {
-      .experience-badge {
-        padding: 15px 25px;
-        
-        .years {
-          font-size: 2rem;
-        }
-      }
+    .achievements-grid {
+      grid-template-columns: 1fr;
     }
-    
-    .about-content {
-      .achievements-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-      }
+
+    .about-image-wrapper {
+      margin-top: 3rem;
     }
   }
 }
