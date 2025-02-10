@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { NavigationEnd } from '@angular/router';
 import * as AOS from 'aos';
+import { Router } from 'express';
 
 @Component({
   selector: 'app-footer',
@@ -8,15 +10,20 @@ import * as AOS from 'aos';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent implements AfterViewInit {
   currentYear: number = new Date().getFullYear();
 
-  ngOnInit() {
+  constructor() {
+    setTimeout(() => {
+      AOS.refresh();
+    }, 500);
+  }
+
+  ngAfterViewInit() {
     AOS.init({
       duration: 800,
       once: true,
       offset: 100
     });
-    // Any additional initialization
   }
 }
