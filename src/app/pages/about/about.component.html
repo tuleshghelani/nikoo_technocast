@@ -1,65 +1,122 @@
-<app-banner [title]="'About Us'" [breadcrumb]="['Home', 'About Us']"></app-banner>
+  <!-- Page Banner -->
+  <app-banner [title]="'About Us'" [breadcrumb]="['Home', 'About Us']"></app-banner>
 
-<section class="about-section section-padding">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6" data-aos="fade-right">
-        <div class="about-content">
-          <h2>Leading Manufacturing Excellence Since 1990</h2>
-          <p class="lead">Specializing in precision engineering and quality manufacturing solutions.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          <div class="key-points">
-            <div class="point">
-              <i class="fas fa-check-circle"></i>
-              <span>30+ Years of Excellence</span>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="about-content">
+            <span class="section-subtitle">WHO WE ARE</span>
+            <h2 class="section-title">Leading Manufacturer of Quality Iron Castings</h2>
+            <p class="description">
+              With over two decades of experience, we have established ourselves as a trusted manufacturer of Gray (C.I) & Ductile (S.G) iron castings. Our commitment to quality and innovation has made us a preferred choice in the industry.
+            </p>
+            <div class="stats-row">
+              <div class="stat-item">
+                <span class="stat-number">{{ counters.years.current }}+</span>
+                <p>Years Experience</p>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">{{ counters.clients.current }}+</span>
+                <p>Happy Clients</p>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">{{ counters.projects.current }}+</span>
+                <p>Projects Done</p>
+              </div>
             </div>
-            <div class="point">
-              <i class="fas fa-check-circle"></i>
-              <span>ISO 9001:2015 Certified</span>
-            </div>
-            <div class="point">
-              <i class="fas fa-check-circle"></i>
-              <span>Global Export Network</span>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="about-image">
+            <img src="assets/images/about-main.jpg" alt="About Us" class="main-image">
+            <div class="experience-badge">
+              <span class="years">20+</span>
+              <span class="text">Years of Excellence</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-6" data-aos="fade-left">
-        <div class="about-image">
-          <img src="assets/images/about-main.jpg" alt="About Us" class="img-fluid rounded">
-        </div>
-      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="stats-section bg-light py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3 col-6" data-aos="fade-up">
-        <div class="stat-item text-center">
-          <h3 class="counter">30+</h3>
-          <p>Years Experience</p>
+  <section class="features-section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-card">
+            <div class="icon">
+              <i class="bi bi-gear-fill"></i>
+            </div>
+            <h3>Advanced Technology</h3>
+            <p>State-of-the-art machinery and equipment for precise manufacturing.</p>
+          </div>
         </div>
-      </div>
-      <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="stat-item text-center">
-          <h3 class="counter">1000+</h3>
-          <p>Projects Completed</p>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-card">
+            <div class="icon">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h3>Quality Assurance</h3>
+            <p>Rigorous quality control measures at every stage of production.</p>
+          </div>
         </div>
-      </div>
-      <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="stat-item text-center">
-          <h3 class="counter">50+</h3>
-          <p>Team Members</p>
-        </div>
-      </div>
-      <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="stat-item text-center">
-          <h3 class="counter">25+</h3>
-          <p>Countries Served</p>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-card">
+            <div class="icon">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h3>Expert Team</h3>
+            <p>Skilled professionals with extensive industry experience.</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section class="vision-mission-section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="vision-card">
+            <h3><i class="bi bi-eye"></i> Our Vision</h3>
+            <p>To be the global leader in iron casting solutions, setting industry standards for quality and innovation.</p>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="mission-card">
+            <h3><i class="bi bi-bullseye"></i> Our Mission</h3>
+            <p>To deliver superior quality castings while maintaining sustainable practices and exceeding customer expectations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <span class="section-subtitle">OUR TEAM</span>
+        <h2 class="section-title">Meet Our Leadership</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-card">
+            <div class="member-image">
+              <img src="assets/images/team/member1.jpg" alt="Team Member">
+            </div>
+            <div class="member-info">
+              <h4>Amanbhai Dalasaniya</h4>
+              <p>CEO & Founder</p>
+              <div class="social-links">
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+                <a href="#"><i class="bi bi-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

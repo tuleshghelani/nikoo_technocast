@@ -1,11 +1,128 @@
 /* You can add global styles to this file, and also import other style files */
 
-// Variables
+// Primary Colors
+// $primary-orange: #EC6945;
+// $primary-dark: #2B2A29;
+// $primary-light: #f8f9fa;
+// $primary-white: #ffffff;
 $primary-orange: #EC6945;
+$primary-orange-light: #F5A487;  // Lighter shade of orange
+$primary-orange-lighter: #FCDCD1; // Even lighter shade of orange
+$primary-orange-lightest: #FEF0EB; // Lightest shade of orange
+
+
 $primary-dark: #2B2A29;
+$primary-dark-light: #6B6A69;    // Lighter shade of dark
+$primary-dark-lighter: #AEAEAE;  // Even lighter shade of dark
+$primary-dark-lightest: #F2F2F2; // Lightest shade of dark
+
+$primary-light: #f8f9fa;
+$primary-white: #ffffff;
+
+// Color variations for hover states
+$primary-orange-hover: darken($primary-orange, 10%);
+$primary-orange-active: darken($primary-orange, 15%);
+
+// Gradient variations
+$primary-orange-gradient: linear-gradient(135deg, $primary-orange 0%, $primary-orange-light 100%);
+$primary-dark-gradient: linear-gradient(135deg, $primary-dark 0%, $primary-dark-light 100%);
+// Secondary Colors
+$secondary-blue: #2C3E50;
+$secondary-teal: #34495E;
+$secondary-gray: #95A5A6;
+
+// Accent Colors
+$accent-red: #ff3e3e;
+$accent-green: #27AE60;
+$accent-yellow: #F1C40F;
+
+// Neutral Colors
+$neutral-100: #F7FAFC;
+$neutral-200: #EDF2F7;
+$neutral-300: #E2E8F0;
+$neutral-400: #CBD5E0;
+$neutral-500: #A0AEC0;
+$neutral-600: #718096;
+$neutral-700: #4A5568;
+$neutral-800: #2D3748;
+$neutral-900: #1A202C;
+
+// State Colors
+$success: #2ECC71;
+$warning: #F39C12;
+$danger: #E74C3C;
+$info: #3498DB;
+
+// Background Colors
 $light-bg: #f8f9fa;
+$dark-bg: #2B2A29;
+
 $white: #ffffff;
-$light-orange: #FED8B1;
+$bg-gradient: linear-gradient(135deg, $primary-orange 0%, darken($primary-orange, 15%) 100%);
+$bg-gradient-dark: linear-gradient(135deg, $secondary-blue 0%, $secondary-teal 100%);
+
+// Overlay Colors
+$overlay-dark: rgba($primary-dark, 0.8);
+$overlay-light: rgba($primary-white, 0.9);
+$overlay-gradient: linear-gradient(90deg, rgba($primary-dark, 0.9) 0%, rgba($primary-dark, 0.6) 100%);
+
+// Shadow Colors
+$shadow-sm: 0 2px 4px rgba($primary-dark, 0.05);
+$shadow-md: 0 4px 6px rgba($primary-dark, 0.1);
+$shadow-lg: 0 10px 15px rgba($primary-dark, 0.1);
+$shadow-xl: 0 20px 25px rgba($primary-dark, 0.15);
+
+// Brand Color Variations
+$brand-primary: (
+  "light": lighten($primary-orange, 15%),
+  "base": $primary-orange,
+  "dark": darken($primary-orange, 15%)
+);
+
+$brand-secondary: (
+  "light": lighten($secondary-blue, 15%),
+  "base": $secondary-blue,
+  "dark": darken($secondary-blue, 15%)
+);
+
+// Utility Color Classes
+.text-primary { color: $primary-orange !important; }
+.text-secondary { color: $secondary-blue !important; }
+.text-accent { color: $accent-red !important; }
+
+.bg-primary { background-color: $primary-orange !important; }
+.bg-secondary { background-color: $secondary-blue !important; }
+.bg-accent { background-color: $accent-red !important; }
+
+// Color Mixins
+@mixin gradient-text {
+  background: $bg-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin glass-effect {
+  background: rgba($primary-white, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($primary-white, 0.2);
+}
+
+// Responsive Color Adjustments
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #{$dark-bg};
+    --text-color: #{$primary-white};
+    --border-color: #{$neutral-700};
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #{$light-bg};
+    --text-color: #{$primary-dark};
+    --border-color: #{$neutral-300};
+  }
+}
 
 // Primary Colors
 $primary-orange: #EC6945;
