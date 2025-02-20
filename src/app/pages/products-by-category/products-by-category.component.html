@@ -1,0 +1,20 @@
+<app-banner [title]="categoryTitle" [breadcrumb]="['Home', 'Products', category]"></app-banner>
+
+<div class="container my-5">
+    <div class="row g-4">
+      <div *ngFor="let product of products" class="col-lg-3 col-md-6 col-sm-12 my-4">
+        <div class="product-card">
+          <div class="product-image">
+            <img [src]="product.image" [alt]="product.name" class="img-fluid">
+            <div class="overlay">
+              <button class="btn view-details-btn">View Details</button>
+            </div>
+          </div>
+          <div class="product-content">
+            <h3 class="product-title">{{product.name}}</h3>
+            <p class="product-description">{{product.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

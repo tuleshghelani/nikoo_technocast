@@ -4,24 +4,50 @@ $light-bg: #f8f9fa;
 $white: #ffffff;
 
 .about-section {
+    padding: 100px 0;
+    background: #fff;
     .about-content {
-      h2 {
-        color: $primary-dark;
-        margin-bottom: 25px;
-        font-weight: 700;
+      padding-right: 50px;
+
+      .section-subtitle {
+        color: #ff3e3e;
+        font-weight: 600;
+        margin-bottom: 15px;
+        display: block;
       }
-      
-      .key-points {
-        margin-top: 30px;
-        
-        .point {
-          display: flex;
-          align-items: center;
-          margin-bottom: 15px;
-          
-          i {
-            color: $primary-orange;
-            margin-right: 10px;
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+        line-height: 1.3;
+      }
+
+      .description {
+        color: #666;
+        line-height: 1.8;
+        margin-bottom: 30px;
+      }
+
+      .stats-row {
+        display: flex;
+        gap: 30px;
+        margin-top: 40px;
+
+        .stat-item {
+          text-align: center;
+
+          .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ff3e3e;
+            display: block;
+            line-height: 1;
+          }
+
+          p {
+            margin: 0;
+            color: #666;
           }
         }
       }
@@ -30,15 +56,33 @@ $white: #ffffff;
     .about-image {
       position: relative;
       
-      &:after {
-        content: '';
-        position: absolute;
-        right: -20px;
-        bottom: -20px;
+      .main-image {
         width: 100%;
-        height: 100%;
-        border: 2px solid $primary-orange;
-        z-index: -1;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .experience-badge {
+        position: absolute;
+        bottom: -30px;
+        left: -30px;
+        background: #ff3e3e;
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(255, 62, 62, 0.2);
+
+        .years {
+          font-size: 2.5rem;
+          font-weight: 700;
+          display: block;
+          line-height: 1;
+        }
+
+        .text {
+          font-size: 0.9rem;
+        }
       }
     }
   }
@@ -56,3 +100,322 @@ $white: #ffffff;
       font-weight: 500;
     }
   }
+
+  // Features Section Styles
+  .features-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, $white 0%, rgba($primary-orange, 0.05) 100%);
+    position: relative;
+    overflow: hidden;
+
+    .feature-card {
+      background: $white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      box-shadow: 0 10px 30px rgba($primary-dark, 0.05);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, $primary-orange 0%, darken($primary-orange, 15%) 100%);
+        border-radius: 20px;
+        opacity: 0;
+        z-index: -1;
+        transition: all 0.4s ease;
+      }
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba($primary-dark, 0.1);
+
+        &::before {
+          opacity: 1;
+        }
+
+        h3, p {
+          color: $white;
+        }
+
+        .icon-wrapper {
+          .icon-circle {
+            background: $white;
+            
+            i {
+              color: $primary-orange;
+            }
+          }
+
+          .icon-bg {
+            transform: scale(1.2);
+            opacity: 0.2;
+          }
+        }
+      }
+
+      .icon-wrapper {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 25px;
+
+        .icon-circle {
+          position: relative;
+          width: 80px;
+          height: 80px;
+          background: rgba($primary-orange, 0.1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto;
+          transition: all 0.4s ease;
+          z-index: 2;
+
+          i {
+            font-size: 2rem;
+            color: $primary-orange;
+            transition: all 0.4s ease;
+          }
+        }
+
+        .icon-bg {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: 100%;
+          background: $primary-orange;
+          border-radius: 50%;
+          opacity: 0.1;
+          transition: all 0.4s ease;
+          z-index: 1;
+        }
+      }
+
+      h3 {
+        color: $primary-dark;
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        transition: all 0.4s ease;
+      }
+
+      p {
+        color: rgba($primary-dark, 0.7);
+        margin-bottom: 0;
+        line-height: 1.6;
+        transition: all 0.4s ease;
+      }
+    }
+  }
+
+  // Vision Mission Section
+  .vision-mission-section {
+    padding: 80px 0;
+    background: #fff;
+
+    .vision-card,
+    .mission-card {
+      padding: 40px;
+      border-radius: 15px;
+      height: 100%;
+      transition: all 0.3s ease;
+
+      h3 {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+
+        i {
+          font-size: 2rem;
+          color: #ff3e3e;
+        }
+      }
+
+      p {
+        color: #666;
+        line-height: 1.8;
+        margin: 0;
+      }
+    }
+
+    .vision-card {
+      background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .mission-card {
+      background: linear-gradient(135deg, #ff3e3e 0%, #ff7676 100%);
+      color: #fff;
+
+      h3 {
+        color: #fff;
+        i {
+          color: #fff;
+        }
+      }
+
+      p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+    }
+  }
+
+  // Team Section
+  .team-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+
+    .section-header {
+      margin-bottom: 50px;
+
+      .section-subtitle {
+        color: #ff3e3e;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 15px;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        margin: 0;
+      }
+    }
+
+    .team-card {
+      background: #fff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+
+        .member-image img {
+          transform: scale(1.1);
+        }
+      }
+
+      .member-image {
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          transition: all 0.3s ease;
+        }
+      }
+
+      .member-info {
+        padding: 25px;
+        text-align: center;
+
+        h4 {
+          margin: 0 0 5px;
+          font-size: 1.25rem;
+        }
+
+        p {
+          color: #666;
+          margin: 0 0 15px;
+        }
+
+        .social-links {
+          display: flex;
+          justify-content: center;
+          gap: 15px;
+
+          a {
+            color: #666;
+            transition: all 0.3s ease;
+
+            &:hover {
+              color: #ff3e3e;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Responsive Styles
+  @media (max-width: 991px) {
+    .about-content {
+      padding-right: 0;
+      margin-bottom: 50px;
+      text-align: center;
+
+      .stats-row {
+        justify-content: center;
+      }
+    }
+
+    .about-image .experience-badge {
+      left: 0;
+    }
+
+    .features-section {
+      padding: 60px 0;
+
+      .feature-card {
+        padding: 30px 20px;
+
+        .icon-wrapper {
+          width: 80px;
+          height: 80px;
+          margin-bottom: 20px;
+
+          .icon-circle {
+            width: 60px;
+            height: 60px;
+
+            i {
+              font-size: 1.5rem;
+            }
+          }
+        }
+
+        h3 {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .about-section {
+    padding: 60px 0;
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .stats-row {
+      flex-wrap: wrap;
+      gap: 20px;
+
+      .stat-item {
+        flex: 0 0 calc(50% - 10px);
+      }
+    }
+  }
+
+  .features-section,
+  .vision-mission-section,
+  .team-section {
+    padding: 60px 0;
+  }
+}
