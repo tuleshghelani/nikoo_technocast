@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { Component, AfterViewInit, PLATFORM_ID, Inject } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-=======
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
->>>>>>> 6c726d8018eb80d012d973c611a8e2602f944439
 import { gsap } from 'gsap';
 import Swiper from 'swiper';
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
@@ -93,18 +88,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   ];
 
-<<<<<<< HEAD
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
-
-  ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.initSwiper();
-      this.initThumbnails();
-    }
-=======
   constructor(private router: Router) {
     this.yearsOfExperience = new Date().getFullYear() - 2005;
->>>>>>> 6c726d8018eb80d012d973c611a8e2602f944439
   }
 
   ngOnInit(): void {
@@ -200,11 +185,20 @@ export class HomeComponent implements OnInit, OnDestroy {
     timeline
       .fromTo('.hero-content > *', 
         { y: 100, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, stagger: 0.2 }
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: 0.7, 
+          stagger: 0.2 
+        }
       )
       .fromTo('.hero-image-wrapper',
         { x: 120, opacity: 0 },
-        { x: 0, opacity: 1, duration: 1 },
+        { 
+          x: 0, 
+          opacity: 1, 
+          duration: 1 
+        },
         "-=0.5"
       );
   }

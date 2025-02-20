@@ -124,53 +124,6 @@ $brand-secondary: (
   }
 }
 
-// Primary Colors
-$primary-orange: #EC6945;
-$primary-dark: #2B2A29;
-
-// Secondary Colors
-$secondary-blue: #45A7EC;  // Complementary to orange
-$secondary-teal: #45ECB9;  // Split complementary
-$secondary-purple: #9845EC; // Split complementary
-
-// Orange Variations
-$orange-light: #FFB599;    // Lighter shade of primary orange
-$orange-dark: #D14F2D;     // Darker shade of primary orange
-$orange-pale: #FFF1EC;     // Very light orange for backgrounds
-
-// Neutral Colors
-$neutral-100: #FFFFFF;     // White
-$neutral-200: #F8F9FA;     // Light background
-$neutral-300: #E9ECEF;     // Light gray
-$neutral-400: #DEE2E6;     // Medium light gray
-$neutral-500: #ADB5BD;     // Medium gray
-$neutral-600: #6C757D;     // Medium dark gray
-$neutral-700: #495057;     // Dark gray
-$neutral-800: #343A40;     // Darker gray
-$neutral-900: #212529;     // Almost black
-
-// Accent Colors
-$accent-success: #45EC75;  // Green for success states
-$accent-warning: #ECB945;  // Yellow for warnings
-$accent-danger: #EC4545;   // Red for errors
-$accent-info: #45B7EC;     // Blue for information
-
-// Background Colors
-$bg-light: #F8F9FA;       // Light background
-$bg-dark: #343A40;        // Dark background
-$bg-orange-soft: #FFF6F3; // Very soft orange background
-$bg-blue-soft: #F3F9FF;   // Very soft blue background
-
-// Overlay Colors
-$overlay-dark: rgba($primary-dark, 0.8);
-$overlay-light: rgba($neutral-100, 0.9);
-$overlay-orange: rgba($primary-orange, 0.1);
-
-// Shadow Colors
-$shadow-light: rgba($primary-dark, 0.05);
-$shadow-medium: rgba($primary-dark, 0.1);
-$shadow-dark: rgba($primary-dark, 0.2);
-
 // Global styles
 body {
   font-family: 'Poppins', sans-serif;

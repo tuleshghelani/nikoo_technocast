@@ -20,71 +20,71 @@
       <div class="row g-4">
         <!-- Category 1 -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="category-card" (click)="showProducts('brake-systems')">
+          <div class="category-card">
             <div class="category-icon">
               <i class="bi bi-truck"></i>
             </div>
             <h3>Heavy Vehicle Brake Systems Components</h3>
             <p>High-quality brake system components for heavy vehicles ensuring safety and reliability.</p>
-            <button class="btn category-link">
+            <a href="#" class="category-link">
               View Products <i class="bi bi-arrow-right"></i>
-            </button>
+            </a>
           </div>
         </div>
 
         <!-- Category 2 -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="category-card" (click)="showProducts('passenger-car')">
+          <div class="category-card">
             <div class="category-icon">
               <i class="bi bi-car-front"></i>
             </div>
             <h3>Passenger Car Components</h3>
             <p>Precision-engineered components for passenger vehicles ensuring optimal performance.</p>
-            <button class="btn category-link">
+            <a href="#" class="category-link">
               View Products <i class="bi bi-arrow-right"></i>
-            </button>
+            </a>
           </div>
         </div>
 
         <!-- Category 3 -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="category-card" (click)="showProducts('compressors')">
+          <div class="category-card">
             <div class="category-icon">
               <i class="bi bi-gear"></i>
             </div>
             <h3>Compressors Components</h3>
             <p>Durable and efficient components for industrial compressor applications.</p>
-            <button class="btn category-link">
+            <a href="#" class="category-link">
               View Products <i class="bi bi-arrow-right"></i>
-            </button>
+            </a>
           </div>
         </div>
 
         <!-- Category 4 -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="category-card" (click)="showProducts('earth-movers')">
+          <div class="category-card">
             <div class="category-icon">
               <i class="bi bi-truck-flatbed"></i>
             </div>
             <h3>Earth Movers & Heavy Vehicles</h3>
             <p>Robust components designed for heavy-duty earth moving equipment.</p>
-            <button class="btn category-link">
+            <a href="#" class="category-link">
               View Products <i class="bi bi-arrow-right"></i>
-            </button>
+            </a>
           </div>
         </div>
 
         <!-- Category 5 -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-          <div class="category-card" (click)="showProducts('valve')">
+          <div class="category-card">
             <div class="category-icon">
               <i class="bi bi-valve"></i>
             </div>
             <h3>Valve & Valve Components</h3>
             <p>High-precision valve components for various industrial applications.</p>
-            <button class="btn category-link">
+            <a href="#" class="category-link">
               View Products <i class="bi bi-arrow-right"></i>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -94,3 +94,31 @@
     </div>
   </div>
 </section>
+
+<!-- Product Modal -->
+<div class="modal fade" id="productModal1" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Product Name</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="assets/images/product1.jpg" alt="Product" class="img-fluid">
+          </div>
+          <div class="col-md-6">
+            <h4>Specifications</h4>
+            <ul class="specifications-list">
+              <li><strong>Material:</strong> Steel</li>
+              <li><strong>Dimensions:</strong> Custom</li>
+              <li><strong>Finish:</strong> Polished</li>
+            </ul>
+            <p>Detailed product description and features...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

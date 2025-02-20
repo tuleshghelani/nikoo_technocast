@@ -104,52 +104,117 @@ $white: #ffffff;
   // Features Section Styles
   .features-section {
     padding: 80px 0;
-    background: #f8f9fa;
+    background: linear-gradient(135deg, $white 0%, rgba($primary-orange, 0.05) 100%);
+    position: relative;
+    overflow: hidden;
 
     .feature-card {
-      background: #fff;
+      background: $white;
       padding: 40px 30px;
-      border-radius: 15px;
+      border-radius: 20px;
       text-align: center;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      z-index: 1;
       height: 100%;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 30px rgba($primary-dark, 0.05);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, $primary-orange 0%, darken($primary-orange, 15%) 100%);
+        border-radius: 20px;
+        opacity: 0;
+        z-index: -1;
+        transition: all 0.4s ease;
+      }
 
       &:hover {
         transform: translateY(-10px);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 20px 40px rgba($primary-dark, 0.1);
 
-        .icon {
-          background: #ff3e3e;
-          color: #fff;
+        &::before {
+          opacity: 1;
+        }
+
+        h3, p {
+          color: $white;
+        }
+
+        .icon-wrapper {
+          .icon-circle {
+            background: $white;
+            
+            i {
+              color: $primary-orange;
+            }
+          }
+
+          .icon-bg {
+            transform: scale(1.2);
+            opacity: 0.2;
+          }
         }
       }
 
-      .icon {
-        width: 80px;
-        height: 80px;
-        background: rgba(255, 62, 62, 0.1);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      .icon-wrapper {
+        position: relative;
+        width: 100px;
+        height: 100px;
         margin: 0 auto 25px;
-        transition: all 0.3s ease;
 
-        i {
-          font-size: 35px;
-          color: #ff3e3e;
+        .icon-circle {
+          position: relative;
+          width: 80px;
+          height: 80px;
+          background: rgba($primary-orange, 0.1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto;
+          transition: all 0.4s ease;
+          z-index: 2;
+
+          i {
+            font-size: 2rem;
+            color: $primary-orange;
+            transition: all 0.4s ease;
+          }
+        }
+
+        .icon-bg {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: 100%;
+          background: $primary-orange;
+          border-radius: 50%;
+          opacity: 0.1;
+          transition: all 0.4s ease;
+          z-index: 1;
         }
       }
 
       h3 {
-        font-size: 1.25rem;
+        color: $primary-dark;
+        font-size: 1.5rem;
+        font-weight: 600;
         margin-bottom: 15px;
+        transition: all 0.4s ease;
       }
 
       p {
-        color: #666;
-        margin: 0;
+        color: rgba($primary-dark, 0.7);
+        margin-bottom: 0;
+        line-height: 1.6;
+        transition: all 0.4s ease;
       }
     }
   }
@@ -300,6 +365,33 @@ $white: #ffffff;
 
     .about-image .experience-badge {
       left: 0;
+    }
+
+    .features-section {
+      padding: 60px 0;
+
+      .feature-card {
+        padding: 30px 20px;
+
+        .icon-wrapper {
+          width: 80px;
+          height: 80px;
+          margin-bottom: 20px;
+
+          .icon-circle {
+            width: 60px;
+            height: 60px;
+
+            i {
+              font-size: 1.5rem;
+            }
+          }
+        }
+
+        h3 {
+          font-size: 1.3rem;
+        }
+      }
     }
   }
 
