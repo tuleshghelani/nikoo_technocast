@@ -1,3 +1,4 @@
+@import '../../../styles.scss';
 $primary-orange: #EC6945;
 $primary-dark: #2B2A29;
 $light-bg: #f8f9fa;
@@ -56,6 +57,15 @@ $white: #ffffff;
         }
       }
     }
+
+    a {
+      color: $primary-orange-light;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $primary-orange-light;
+      }
+    }
   }
   
   .contact-form {
@@ -86,5 +96,53 @@ $white: #ffffff;
     
     button {
       padding: 12px 30px;
+    }
+  }
+
+  .location-info {
+    background: $white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-top: 30px;
+
+    h3 {
+      color: $primary-dark;
+      margin-bottom: 20px;
+    }
+
+    h4 {
+      color: $primary-orange;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 5px;
+        color: rgba($primary-dark, 0.7);
+      }
+    }
+
+    h5 {
+      margin-top: 15px;
+      color: $primary-dark;
+    }
+
+    p {
+      color: rgba($primary-dark, 0.7);
+    }
+  }
+
+  .icon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+
+    .shipment-icon {
+      width: 50px; // Adjust size as needed
+      height: auto;
     }
   }
