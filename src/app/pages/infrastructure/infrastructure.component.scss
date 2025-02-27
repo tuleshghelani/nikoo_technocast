@@ -1,0 +1,202 @@
+@import '../../../styles.scss';
+
+.infrastructure-main {
+  padding: 100px 0;
+  
+  .infrastructure-content {
+    .section-subtitle {
+      color: $primary-orange;
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: $primary-dark;
+    }
+    
+    .description {
+      color: rgba($primary-dark, 0.8);
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+  }
+
+  .key-features {
+    .feature-item {
+      margin-bottom: 30px;
+      padding: 25px;
+      background: $white;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      }
+      
+      i {
+        color: $primary-orange;
+        font-size: 2rem;
+        margin-bottom: 15px;
+      }
+      
+      h4 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+      }
+      
+      p {
+        color: rgba($primary-dark, 0.7);
+        margin: 0;
+      }
+    }
+  }
+}
+
+.equipment-card {
+  background: $white;
+  border-radius: 15px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: $primary-orange-gradient;
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
+    
+    .icon-wrapper {
+      svg {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    
+    svg {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  h3 {
+    color: $primary-orange;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  p {
+    color: $primary-dark-light;
+    text-align: center;
+    margin: 0;
+    line-height: 1.6;
+  }
+}
+
+.team-section {
+  .section-subtitle {
+    color: $primary-orange;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .expertise-grid {
+    margin-top: 2rem;
+
+    .expertise-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: $primary-orange-lightest;
+        transform: translateX(5px);
+      }
+
+      i {
+        color: $primary-orange-lighter;
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        margin-top: 0.25rem;
+      }
+
+      .expertise-details {
+        flex: 1;
+        
+        h4 {
+          color: $primary-dark;
+          margin-bottom: 0.5rem;
+          font-size: 1.1rem;
+          font-weight: 600;
+        }
+
+        p {
+          color: $primary-dark-light;
+          margin: 0;
+          font-size: 0.9rem;
+        }
+      }
+
+      img.desktop-only {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        margin-left: 1rem;
+        display: none;
+        
+        @media (min-width: 992px) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .team-image {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: $shadow-lg;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $overlay-gradient;
+      opacity: 0.1;
+    }
+  }
+}
+
+

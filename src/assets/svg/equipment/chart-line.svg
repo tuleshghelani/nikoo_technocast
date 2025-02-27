@@ -1,0 +1,13 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="equipmentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EC6945"/>
+      <stop offset="100%" style="stop-color:#F5A487"/>
+    </linearGradient>
+  </defs>
+  <path d="M15 65h50M15 15v50" stroke="url(#equipmentGradient)" stroke-width="3"/>
+  <path d="M15 50l20-20 15 10 15-25" fill="none" stroke="url(#equipmentGradient)" stroke-width="3"/>
+  <circle cx="35" cy="30" r="3" fill="url(#equipmentGradient)"/>
+  <circle cx="50" cy="40" r="3" fill="url(#equipmentGradient)"/>
+  <circle cx="65" cy="15" r="3" fill="url(#equipmentGradient)"/>
+</svg> 
