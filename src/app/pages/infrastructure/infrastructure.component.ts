@@ -34,7 +34,7 @@ export class InfrastructureComponent implements OnInit {
     },
     {
       icon: 'fas fa-flask',
-      name: 'Wet Lab Analysis',
+      name: 'Wet Lab Analysis', 
       description: 'Comprehensive testing of ferrous alloys and composition control',
       svgPath: 'assets/svg/equipment/flask.svg'
     },

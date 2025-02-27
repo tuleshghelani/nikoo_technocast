@@ -1,1 +1,90 @@
 <app-banner title="Quality Management System" [breadcrumb]="['Home', 'QMS']"></app-banner>
+
+<section class="qms-intro section-padding">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6" data-aos="fade-right">
+        <div class="qms-content">
+          <span class="section-subtitle">QUALITY ASSURANCE</span>
+          <h1 class="section-title">
+            Setting Industry Standards in 
+            <span class="highlight">Quality Control</span>
+          </h1>
+          <p class="description">
+            At <strong>Nikoo Technocast</strong>, quality is our cornerstone. Our <em>comprehensive quality management system</em> ensures excellence at every stage of production, from raw material selection to final product delivery.
+          </p>
+          <h2 class="quality-highlights">Key Quality Metrics</h2>
+          <div class="quality-stats">
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+              <i class="fas fa-check-circle"></i>
+              <h3>100%</h3>
+              <p><strong>Quality Inspection</strong></p>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+              <i class="fas fa-certificate"></i>
+              <h3>ISO</h3>
+              <p><strong>Certified Process</strong></p>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+              <i class="fas fa-star"></i>
+              <h3>Premium</h3>
+              <p><strong>Raw Materials</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="qms-image">
+          <img 
+            src="assets/qms/qms1.jpg" 
+            alt="Advanced Quality Testing Equipment at Nikoo Technocast" 
+            class="img-fluid"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="raw-materials section-padding bg-light">
+  <div class="container">
+    <div class="section-header text-center" data-aos="fade-up">
+      <h2>Premium Raw Materials</h2>
+      <p>Superior quality raw materials ensuring exceptional end products</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6" *ngFor="let material of rawMaterials" data-aos="fade-up">
+        <div class="material-card">
+          <div class="icon-wrapper">
+            <i [class]="material.icon"></i>
+          </div>
+          <h3>{{material.name}}</h3>
+          <p>{{material.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testing-process section-padding">
+  <div class="container">
+    <div class="section-header text-center" data-aos="fade-up">
+      <h2>Advanced Testing Processes</h2>
+      <p>Comprehensive quality control through state-of-the-art testing equipment</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6" *ngFor="let test of testingProcesses" data-aos="fade-up">
+        <div class="testing-card">
+          <div class="test-icon">
+            <i [class]="test.icon"></i>
+          </div>
+          <div class="test-content">
+            <h3>{{test.name}}</h3>
+            <p>{{test.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
