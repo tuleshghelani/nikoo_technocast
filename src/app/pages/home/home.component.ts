@@ -24,24 +24,44 @@ export class HomeComponent implements OnInit, OnDestroy {
   yearsOfExperience: number;
   products = [
     {
-      image: 'assets/home/casting_product_3.jpeg',
-      name: 'Brake Components',
-      description: 'High-quality brake system components for heavy vehicles'
+      image: 'assets/home/sand_casting.png',
+      name: 'Sand Casting Parts',
+      description: 'Precision-engineered sand casting components with superior finish and dimensional accuracy'
     },
     {
-      image: 'assets/home/casting_product_3.jpeg',
-      name: 'Valve Components',
-      description: 'Precision-engineered valve components for industrial applications'
+      image: 'assets/home/automobile_casting.png',
+      name: 'AutoMobile Casting Parts',
+      description: 'High-quality automotive components meeting strict OEM specifications'
     },
     {
-      image: 'assets/home/casting_product_3.jpeg',
-      name: 'Machine Parts',
-      description: 'Custom machine parts with superior durability'
+      image: 'assets/home/crank_shaft.png',
+      name: 'Casting Crank Shafts',
+      description: 'Durable and precision-machined crankshafts for optimal performance'
     },
     {
-      image: 'assets/home/casting_product_3.jpeg',
-      name: 'Compressor Components',
-      description: 'Reliable components for industrial compressors'
+      image: 'assets/home/gearbox_housing.png',
+      name: 'Casting Gearbox Housing',
+      description: 'Robust gearbox housings engineered for maximum reliability'
+    },
+    {
+      image: 'assets/home/differential_housing.png',
+      name: 'Casting Differential Housing',
+      description: 'Precision-engineered differential housings for smooth power transmission'
+    },
+    {
+      image: 'assets/home/sand_valve_and_valve_body.png',
+      name: 'Sand Casting Valves and Valve Body',
+      description: 'High-performance valve components with excellent flow characteristics'
+    },
+    {
+      image: 'assets/home/agricultural_casting.png',
+      name: 'Agricultural Casting Parts',
+      description: 'Durable agricultural components built for demanding field conditions'
+    },
+    {
+      image: 'assets/home/earth_mover_casting.png',
+      name: 'Casting Parts for Earth Movers',
+      description: 'Heavy-duty components designed for extreme operational conditions'
     }
   ];
   
