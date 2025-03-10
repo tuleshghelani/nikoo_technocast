@@ -67,42 +67,42 @@ export class HomeComponent implements OnInit, OnDestroy {
   
   infrastructure = [
     {
-      image: 'assets/home/casting_product_3.jpeg',
+      image: 'assets/home/cnc_machine_shop.jpeg',
       title: 'CNC Machine Shop',
       description: 'State-of-the-art CNC machinery for precision manufacturing'
     },
     {
-      image: 'assets/home/casting_product_3.jpeg',
+      image: 'assets/home/tool_and_mold_design.jpeg',
       title: 'Tool & Mold Design',
       description: 'Advanced design facilities for tooling and mold development'
     },
     {
-      image: 'assets/home/casting_product_3.jpeg',
+      image: 'assets/home/casting.jpeg',
       title: 'Casting',
       description: 'Modern casting facilities with superior quality control'
     },
     {
-      image: 'assets/home/casting_product_3.jpeg',
+      image: 'assets/home/tools_and_die.jpeg',
       title: 'Tools and Die',
       description: 'Comprehensive tool and die manufacturing capabilities'
     },
     {
-      image: 'assets/home/casting_product_3.jpeg',
+      image: 'assets/home/general_engineering.jpeg',
       title: 'General Engineering',
       description: 'Versatile engineering solutions for diverse industries'
     },
     {
-      image: 'assets/home/casting_product_3.jpeg',
+      image: 'assets/home/automotive.jpeg',
       title: 'Automotive',
       description: 'Specialized facilities for automotive component manufacturing'
     },
     {
-      image: 'assets/home/casting_product_3.jpeg',
+      image: 'assets/home/pattern_development.jpeg',
       title: 'Pattern Development',
       description: 'Expert pattern making for precise casting results'
     },
     {
-      image: 'assets/home/casting_product_3.jpeg',
+      image: 'assets/home/quality_testing.jpeg',
       title: 'Quality Testing',
       description: 'Advanced testing facilities ensuring product excellence'
     }
