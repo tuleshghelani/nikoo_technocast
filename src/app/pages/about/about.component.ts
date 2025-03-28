@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { BannerComponent } from '../../components/shared/banner/banner.component';
 import * as AOS from 'aos';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-about',
@@ -10,6 +11,7 @@ import * as AOS from 'aos';
   styleUrl: './about.component.scss'
 })
 export class AboutComponent implements OnInit {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
   counters:any = {
     years: { start: 0, end: 20, current: 0 },
     clients: { start: 0, end: 500, current: 0 },
@@ -17,31 +19,45 @@ export class AboutComponent implements OnInit {
   };
 
   ngOnInit() {
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+      
+      this.initCounterAnimation();
+    }
+  }
 
-    // Start counter animation when element is in view
+  private initCounterAnimation() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           this.animateCounters();
-          observer.disconnect(); // Stop observing once animation starts
+          observer.disconnect();
         }
       });
     });
-
-    // Observe the stats section
-    const statsElement = document.querySelector('.stats-row');
-    if (statsElement) {
-      observer.observe(statsElement);
-    }
+    
+    setTimeout(() => {
+      const statsElement = document.querySelector('.stats-row');
+      if (statsElement) {
+        observer.observe(statsElement);
+      }
+    }, 100);
   }
 
   private animateCounters() {
-    const duration = 2000; // 2 seconds
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    
+    const duration = 2000;
     const steps = 60;
     const interval = duration / steps;
 
@@ -55,7 +71,7 @@ export class AboutComponent implements OnInit {
         counter.current = Math.round(counter.start + (increment * currentStep));
 
         if (currentStep === steps) {
-          counter.current = counter.end; // Ensure we end at exact number
+          counter.current = counter.end;
           clearInterval(timer);
         }
       }, interval);

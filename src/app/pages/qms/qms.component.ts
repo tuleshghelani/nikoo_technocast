@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { BannerComponent } from '../../components/shared/banner/banner.component';
 import { CommonModule } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
+import { isPlatformBrowser } from '@angular/common';
 import * as AOS from 'aos';
 
 @Component({
@@ -60,7 +61,8 @@ export class QmsComponent implements OnInit {
 
   constructor(
     private meta: Meta,
-    private title: Title
+    private title: Title,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit() {
@@ -82,11 +84,14 @@ export class QmsComponent implements OnInit {
     this.meta.updateTag({ property: 'og:image', content: 'assets/qms/quality-testing.jpg' });
     this.meta.updateTag({ property: 'og:type', content: 'website' });
 
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100
-    });
+    // Only initialize AOS in browser environment
+    if (isPlatformBrowser(this.platformId)) {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+    }
 
     // Add structured data
     const structuredData = {

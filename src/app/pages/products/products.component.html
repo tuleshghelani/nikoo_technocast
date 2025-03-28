@@ -1,121 +1,249 @@
 <app-banner title="Our Products" [breadcrumb]="['Home', 'Products']"></app-banner>
 
 <section class="products-section">
-  <!-- Intro Section -->
+  <!-- Introduction Section -->
   <div class="intro-section">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center" data-aos="fade-up">
+          <h1 class="main-heading">Premium Iron Castings by Nikoo Technocast</h1>
           <p class="intro-text">
-            We are specialized in the manufacturing of Gray (C.I) & Ductile (S.G) iron castings. Following is the product range of Nikoo Technocast
+            We are <strong>specialized in the manufacturing of Gray (C.I) & Ductile (S.G) iron castings</strong>. 
+            Our products combine durability, precision, and quality to meet the demanding needs of various industries.
           </p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Categories Grid -->
+  <!-- Featured Products Showcase -->
+  <div class="featured-products-showcase">
+    <div class="container">
+      <h2 class="section-title text-center mb-4" data-aos="fade-up">Our Premium Castings</h2>
+      <p class="text-center mb-5" data-aos="fade-up">Precision-engineered iron castings serving diverse industrial applications</p>
+      
+      <div class="product-showcase-wrapper" data-aos="fade-up">
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="showcase-image-main">
+              <img src="assets/svg/products/main-casting.svg" alt="Premium Iron Castings" class="img-fluid rounded shadow-lg">
+              <div class="overlay">
+                <div class="content">
+                  <h3>High Performance</h3>
+                  <p>Superior quality castings with exceptional strength and durability</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="showcase-image-small">
+                  <img src="assets/svg/products/precision-casting.svg" alt="Precision Engineered Components" class="img-fluid rounded shadow">
+                  <div class="overlay">
+                    <div class="content">
+                      <h4>Precision Engineered</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="showcase-image-small">
+                  <img src="assets/svg/products/custom-casting.svg" alt="Custom Manufacturing Solutions" class="img-fluid rounded shadow">
+                  <div class="overlay">
+                    <div class="content">
+                      <h4>Custom Solutions</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="showcase-image-small">
+                  <img src="assets/svg/products/industrial-casting.svg" alt="Industry Compliant Products" class="img-fluid rounded shadow">
+                  <div class="overlay">
+                    <div class="content">
+                      <h4>Industry Compliant</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="showcase-image-small">
+                  <img src="assets/svg/products/quality-casting.svg" alt="Quality Assured Components" class="img-fluid rounded shadow">
+                  <div class="overlay">
+                    <div class="content">
+                      <h4>Quality Assured</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Categories Section -->
   <div class="categories-section">
     <div class="container">
+      <h2 class="section-title text-center mb-5" data-aos="fade-up">Our Product Range</h2>
+      
       <div class="row g-4">
-        <!-- Category 1 -->
+        <!-- Product Category Cards -->
+        <div class="col-lg-4 col-md-6" *ngFor="let category of productCategories; let i = index" data-aos="fade-up" [attr.data-aos-delay]="100 + (i * 50)">
+          <div class="category-card">
+            <div class="category-image">
+              <img [src]="category.image" [alt]="category.title" class="img-fluid">
+              <!-- <div class="category-icon">
+                <i [class]="category.icon"></i>
+              </div> -->
+            </div>
+            <h3>{{category.title}}</h3>
+            <p>{{category.description}}</p>
+            <a href="javascript:void(0)" class="category-link" (click)="showProductDetails(category)">
+              View Details <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Materials & Capabilities Section -->
+  <div class="materials-section section-padding">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="materials-content">
+            <h2 class="section-title">Our Materials & Capabilities</h2>
+            <p class="mb-4">At Nikoo Technocast, we specialize in two primary types of iron castings:</p>
+            
+            <div class="material-box">
+              <h3>Gray Iron (C.I) Castings</h3>
+              <p>Excellent vibration damping properties with superior wear resistance and thermal conductivity, ideal for:</p>
+              <ul>
+                <li>Engine blocks and cylinder heads</li>
+                <li>Brake components and housing</li>
+                <li>Machinery bases and frames</li>
+                <li>Industrial equipment components</li>
+              </ul>
+            </div>
+            
+            <div class="material-box">
+              <h3>Ductile Iron (S.G) Castings</h3>
+              <p>Combines the castability of gray iron with the strength and ductility of steel, perfect for:</p>
+              <ul>
+                <li>Safety-critical automotive components</li>
+                <li>Pressure-containing parts</li>
+                <li>Structural components requiring high tensile strength</li>
+                <li>Heavy machinery applications</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="image-grid">
+            <div class="image-wrapper main-image">
+              <img src="assets/home/automobile_casting.png" alt="Iron casting process" class="img-fluid rounded shadow">
+            </div>
+            <div class="specs-card">
+              <h4>Production Capabilities</h4>
+              <ul>
+                <li><strong>Weight Range:</strong> 0.5 kg to 120 kg</li>
+                <li><strong>Dimensional Tolerance:</strong> CT6-CT8</li>
+                <li><strong>Surface Finish:</strong> 125-250 RMS</li>
+                <li><strong>Material Grades:</strong> GI-200 to GI-400, SGI-400 to SGI-700</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quality Assurance Section -->
+  <div class="quality-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center" data-aos="fade-up">
+          <h2 class="section-title">Quality Assurance</h2>
+          <p class="section-subtitle">Every product undergoes rigorous testing and inspection</p>
+        </div>
+      </div>
+      <div class="row mt-4 g-4">
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="category-card">
-            <div class="category-icon">
-              <i class="bi bi-truck"></i>
+          <div class="quality-card">
+            <div class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="quality-icon">
+                <path d="M32 4C16.6 4 4 16.6 4 32s12.6 28 28 28 28-12.6 28-28S47.4 4 32 4zm0 5c12.7 0 23 10.3 23 23S44.7 55 32 55 9 44.7 9 32 19.3 9 32 9z" fill="#EC6945"/>
+                <path d="M28 38.4l-8.4-8.4-3.6 3.6L28 45.6l24-24-3.6-3.6z" fill="#EC6945"/>
+              </svg>
             </div>
-            <h3>Heavy Vehicle Brake Systems Components</h3>
-            <p>High-quality brake system components for heavy vehicles ensuring safety and reliability.</p>
-            <a href="#" class="category-link">
-              View Products <i class="bi bi-arrow-right"></i>
-            </a>
+            <h3>Material Testing</h3>
+            <p>Optical Emission Spectrometer analysis for precise chemical composition verification</p>
           </div>
         </div>
-
-        <!-- Category 2 -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="category-card">
-            <div class="category-icon">
-              <i class="bi bi-car-front"></i>
+          <div class="quality-card">
+            <div class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="quality-icon">
+                <path d="M58 16H42V6c0-1.1-.9-2-2-2H24c-1.1 0-2 .9-2 2v10H6c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16v24c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V34h16c1.1 0 2-.9 2-2V18c0-1.1-.9-2-2-2z" fill="none" stroke="#EC6945" stroke-width="3"/>
+                <path d="M26 8h12M26 14h12M26 20h12M26 26h12M26 32h12M26 38h12M26 44h12M26 50h12M26 56h12M8 22h48M8 30h48" stroke="#EC6945" stroke-width="2"/>
+              </svg>
             </div>
-            <h3>Passenger Car Components</h3>
-            <p>Precision-engineered components for passenger vehicles ensuring optimal performance.</p>
-            <a href="#" class="category-link">
-              View Products <i class="bi bi-arrow-right"></i>
-            </a>
+            <h3>Dimensional Inspection</h3>
+            <p>Advanced CMM machines ensuring precise dimensional accuracy for every component</p>
           </div>
         </div>
-
-        <!-- Category 3 -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="category-card">
-            <div class="category-icon">
-              <i class="bi bi-gear"></i>
+          <div class="quality-card">
+            <div class="icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="quality-icon">
+                <circle cx="32" cy="32" r="14" fill="none" stroke="#EC6945" stroke-width="3"/>
+                <circle cx="32" cy="32" r="6" fill="#EC6945"/>
+                <path d="M60 32c0-3.9-8-7-8-7s8-3.1 8-7c0-3.9-12.8 0-12.8 0S48 4 44 4c-4 0-3.2 14-3.2 14S26.7 4 24 4c-2.7 0-2.4 14-2.4 14S7.9 12 4 18c-3.9 6 14.1 6.5 14.1 6.5S4 36.1 4 40c0 3.9 14.1 1.6 14.1 1.6S12 60 20 60c8 0 5.9-14.5 5.9-14.5S42 56 44 56c2 0 1.2-14 1.2-14S60 35.9 60 32z" fill="none" stroke="#EC6945" stroke-width="1.5" opacity="0.5"/>
+              </svg>
             </div>
-            <h3>Compressors Components</h3>
-            <p>Durable and efficient components for industrial compressor applications.</p>
-            <a href="#" class="category-link">
-              View Products <i class="bi bi-arrow-right"></i>
-            </a>
+            <h3>Visual Inspection</h3>
+            <p>Comprehensive surface examination to ensure defect-free castings</p>
           </div>
         </div>
-
-        <!-- Category 4 -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="category-card">
-            <div class="category-icon">
-              <i class="bi bi-truck-flatbed"></i>
-            </div>
-            <h3>Earth Movers & Heavy Vehicles</h3>
-            <p>Robust components designed for heavy-duty earth moving equipment.</p>
-            <a href="#" class="category-link">
-              View Products <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Category 5 -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-          <div class="category-card">
-            <div class="category-icon">
-              <i class="bi bi-valve"></i>
-            </div>
-            <h3>Valve & Valve Components</h3>
-            <p>High-precision valve components for various industrial applications.</p>
-            <a href="#" class="category-link">
-              View Products <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Categories 6-9 following same pattern -->
-        <!-- Add remaining categories with appropriate icons and descriptions -->
       </div>
     </div>
   </div>
 </section>
 
-<!-- Product Modal -->
-<div class="modal fade" id="productModal1" tabindex="-1">
+<!-- Product Details Modal -->
+<div class="modal fade" id="productModal" tabindex="-1" *ngIf="selectedCategory" [ngClass]="{'show': selectedCategory}" style="display: block; background: rgba(0,0,0,0.5);">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Product Name</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        <h5 class="modal-title">{{selectedCategory?.title}}</h5>
+        <button type="button" class="btn-close" (click)="selectedCategory = null"></button>
       </div>
       <div class="modal-body">
         <div class="row">
           <div class="col-md-6">
-            <img src="assets/images/product1.jpg" alt="Product" class="img-fluid">
+            <img [src]="selectedCategory?.image" [alt]="selectedCategory?.title" class="img-fluid rounded shadow-lg">
           </div>
           <div class="col-md-6">
-            <h4>Specifications</h4>
-            <ul class="specifications-list">
-              <li><strong>Material:</strong> Steel</li>
-              <li><strong>Dimensions:</strong> Custom</li>
-              <li><strong>Finish:</strong> Polished</li>
+            <h4>Product Details</h4>
+            <p>{{selectedCategory?.description}}</p>
+            
+            <h5>Applications</h5>
+            <ul class="applications-list">
+              <li *ngFor="let app of selectedCategory?.applications">{{app}}</li>
             </ul>
-            <p>Detailed product description and features...</p>
+            
+            <h5>Available Materials</h5>
+            <ul class="materials-list">
+              <li *ngFor="let material of selectedCategory?.materials">{{material}}</li>
+            </ul>
+            
+            <div class="inquiry-button mt-4">
+              <a routerLink="/contact" class="btn btn-primary">Request Quotation</a>
+            </div>
           </div>
         </div>
       </div>

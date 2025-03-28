@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { BannerComponent } from '../../components/shared/banner/banner.component';
 import { CommonModule } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
+import { isPlatformBrowser } from '@angular/common';
 import * as AOS from 'aos';
 
 export interface EquipmentItem {
@@ -59,8 +60,9 @@ export class InfrastructureComponent implements OnInit {
   ];
 
   constructor(
+    private title: Title,
     private meta: Meta,
-    private title: Title
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit() {
@@ -88,11 +90,13 @@ export class InfrastructureComponent implements OnInit {
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.meta.updateTag({ name: 'twitter:title', content: 'Advanced Manufacturing Infrastructure | Nikoo Technocast' });
     
-    // Initialize AOS
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100
-    });
+    // Initialize AOS only in browser
+    if (isPlatformBrowser(this.platformId)) {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+    }
   }
 }

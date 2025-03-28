@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="metal-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d0d0d0" />
+      <stop offset="60%" stop-color="#a0a0a0" />
+      <stop offset="100%" stop-color="#707070" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect x="0" y="0" width="400" height="300" fill="#f8f8f8"/>
+  
+  <!-- Gear Mechanism -->
+  <circle cx="200" cy="150" r="100" fill="url(#metal-gradient)" stroke="#2B2A29" stroke-width="3"/>
+  <circle cx="200" cy="150" r="80" fill="none" stroke="#2B2A29" stroke-width="2"/>
+  <circle cx="200" cy="150" r="30" fill="#2B2A29"/>
+  
+  <!-- Gear Teeth -->
+  <g stroke="#2B2A29" stroke-width="2" fill="url(#metal-gradient)">
+    <!-- 12 gear teeth around the main gear -->
+    <path d="M200,50 L210,30 L190,30 Z"/>
+    <path d="M250,70 L270,55 L260,35 Z"/>
+    <path d="M280,120 L300,115 L295,95 Z"/>
+    <path d="M270,180 L290,195 L295,175 Z"/>
+    <path d="M230,220 L240,240 L260,230 Z"/>
+    <path d="M170,230 L160,250 L180,250 Z"/>
+    <path d="M120,200 L100,215 L110,235 Z"/>
+    <path d="M90,150 L70,155 L75,175 Z"/>
+    <path d="M100,100 L80,85 L75,105 Z"/>
+    <path d="M140,70 L120,50 L110,70 Z"/>
+  </g>
+  
+  <!-- Precision Marks -->
+  <circle cx="200" cy="150" r="90" fill="none" stroke="#EC6945" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="110" y1="150" x2="290" y2="150" stroke="#EC6945" stroke-width="1" stroke-dasharray="5,5"/>
+  <line x1="200" y1="60" x2="200" y2="240" stroke="#EC6945" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Measurement Indicators -->
+  <text x="140" y="155" font-family="Arial, sans-serif" font-size="8" fill="#333">80mm</text>
+  <text x="202" y="100" font-family="Arial, sans-serif" font-size="8" fill="#333" text-anchor="start">60mm</text>
+  
+  <!-- Highlight for metallic effect -->
+  <path d="M150,100 C170,90 230,90 250,100" stroke="white" stroke-width="3" stroke-opacity="0.5" fill="none"/>
+</svg> 

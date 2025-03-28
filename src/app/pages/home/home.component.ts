@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { gsap } from 'gsap';
 import Swiper from 'swiper';
@@ -10,6 +10,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from '../../components/shared/product-card/product-card.component';
+import { isPlatformBrowser } from '@angular/common';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-home',
@@ -108,14 +110,22 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   ];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {
     this.yearsOfExperience = new Date().getFullYear() - 2005;
   }
 
   ngOnInit(): void {
-    this.initSwiper();
-    this.handleResize();
-    this.initThumbnailNavigation();
+    if (isPlatformBrowser(this.platformId)) {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+      
+      setTimeout(() => {
+        this.initSwiper();
+      }, 0);
+    }
   }
 
   private initSwiper(): void {

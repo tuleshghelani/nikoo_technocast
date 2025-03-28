@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { BannerComponent } from '../../components/shared/banner/banner.component';
 import { FormsModule } from '@angular/forms';
+import { isPlatformBrowser } from '@angular/common';
 import * as AOS from 'aos';
 
 @Component({
@@ -8,28 +9,33 @@ import * as AOS from 'aos';
   standalone: true,
   imports: [
     BannerComponent,
-    FormsModule],
+    FormsModule
+  ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
-export class ContactComponent {
-  ngForm:any
-  contactData:any = {
+export class ContactComponent implements OnInit {
+  ngForm: any;
+  contactData: any = {
     name: '',
     email: '',
     subject: '',
     message: ''
   };
   
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  
   ngOnInit() {
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100
-    });
+    if (isPlatformBrowser(this.platformId)) {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+    }
   }
 
-  onSubmit(){
-
+  onSubmit() {
+    // Implement form submission logic here
   }
 }
