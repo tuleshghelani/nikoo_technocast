@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="metal-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0e0e0" />
+      <stop offset="50%" stop-color="#b0b0b0" />
+      <stop offset="100%" stop-color="#808080" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect x="0" y="0" width="400" height="300" fill="#f8f8f8"/>
+  
+  <!-- Custom Part Blueprint Outline -->
+  <rect x="50" y="50" width="300" height="200" fill="none" stroke="#2B2A29" stroke-width="1" stroke-dasharray="5,3"/>
+  
+  <!-- Main Custom Part -->
+  <path d="M100,150 L150,100 L250,100 L300,150 L250,200 L150,200 Z" fill="url(#metal-gradient)" stroke="#2B2A29" stroke-width="3"/>
+  
+  <!-- Custom Features -->
+  <circle cx="200" cy="150" r="30" fill="#f8f8f8" stroke="#2B2A29" stroke-width="2"/>
+  <circle cx="200" cy="150" r="15" fill="#EC6945"/>
+  
+  <!-- Mounting Holes -->
+  <circle cx="150" cy="125" r="8" fill="#333"/>
+  <circle cx="250" cy="125" r="8" fill="#333"/>
+  <circle cx="150" cy="175" r="8" fill="#333"/>
+  <circle cx="250" cy="175" r="8" fill="#333"/>
+  
+  <!-- Customization Indicators -->
+  <path d="M120,90 L130,80 L140,90" stroke="#EC6945" stroke-width="2" fill="none"/>
+  <path d="M260,90 L270,80 L280,90" stroke="#EC6945" stroke-width="2" fill="none"/>
+  <path d="M310,150 L320,150 L315,160" stroke="#EC6945" stroke-width="2" fill="none"/>
+  
+  <!-- Dimension Lines -->
+  <line x1="100" y1="220" x2="300" y2="220" stroke="#2B2A29" stroke-width="1"/>
+  <line x1="100" y1="215" x2="100" y2="225" stroke="#2B2A29" stroke-width="1"/>
+  <line x1="300" y1="215" x2="300" y2="225" stroke="#2B2A29" stroke-width="1"/>
+  <text x="200" y="235" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#2B2A29">200mm</text>
+  
+  <!-- Metallic Highlights -->
+  <path d="M150,120 L250,120" stroke="white" stroke-width="2" stroke-opacity="0.5" fill="none"/>
+  <path d="M150,180 L250,180" stroke="white" stroke-width="2" stroke-opacity="0.3" fill="none"/>
+</svg> 
