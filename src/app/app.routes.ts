@@ -6,6 +6,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { CompanyProfileComponent } from './pages/company-profile/company-profile.component';
 import { QmsComponent } from './pages/qms/qms.component';
 import { InfrastructureComponent } from './pages/infrastructure/infrastructure.component';
+import { AgricultureAndEarthMoversComponent } from './pages/agriculture-and-earth-movers/agriculture-and-earth-movers.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -15,5 +16,6 @@ export const routes: Routes = [
     { path: 'company-profile', component: CompanyProfileComponent },
     { path: 'qms', component: QmsComponent },
     { path: 'infrastructure', component: InfrastructureComponent },
+    { path: 'product/agriculture-and-earth-movers', component: AgricultureAndEarthMoversComponent },
     { path: '**', redirectTo: '' }
 ];

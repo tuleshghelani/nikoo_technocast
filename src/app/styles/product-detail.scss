@@ -1,0 +1,641 @@
+/* Common Product Detail Styles - Using Theme Colors from styles.scss */
+
+// Import theme colors
+@import '../../styles.scss';
+
+// Product Page Layout
+.product-detail-page {
+  background-color: $primary-light;
+  min-height: 100vh;
+  padding: 80px 0 60px;
+
+  @media (max-width: 768px) {
+    padding: 60px 0 40px;
+  }
+}
+
+// Page Header
+.page-header {
+  background: $primary-dark-gradient;
+  color: $primary-white;
+  padding: 60px 0;
+  margin-bottom: 50px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: $primary-white;
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+  }
+
+  .breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    font-size: 0.95rem;
+
+    .breadcrumb-item {
+      color: $primary-orange-lighter;
+
+      a {
+        color: $primary-white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $primary-orange;
+        }
+      }
+
+      &.active {
+        color: $primary-orange-light;
+      }
+
+      + .breadcrumb-item::before {
+        color: $primary-orange-lighter;
+      }
+    }
+  }
+
+  .category-description {
+    max-width: 800px;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: $primary-orange-lighter;
+  }
+}
+
+// Product Grid
+.products-grid {
+  .row {
+    --bs-gutter-x: 30px;
+    --bs-gutter-y: 30px;
+  }
+}
+
+// Product Card
+.product-card {
+  background: $primary-white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-xl;
+
+    .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-overlay {
+      opacity: 1;
+    }
+  }
+
+  .product-image {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: $neutral-100;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 20px;
+      transition: transform 0.4s ease;
+    }
+
+    .product-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $overlay-gradient;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      .view-icon {
+        font-size: 3rem;
+        color: $primary-white;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+    }
+  }
+
+  .product-info {
+    padding: 20px;
+    text-align: center;
+    background: $primary-white;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: $primary-dark;
+      margin: 0;
+      line-height: 1.4;
+    }
+  }
+}
+
+// Image Slider Modal
+.image-slider-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($primary-dark, 0.95);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+  overflow: hidden;
+
+  &.closing {
+    animation: fadeOut 0.3s ease;
+  }
+
+  .modal-content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    @media (max-width: 768px) {
+      padding: 10px;
+    }
+  }
+
+  // Close Button
+  .close-button {
+    position: absolute;
+    top: 24px;
+    right: 40px;
+    background: rgba($primary-orange, 0.95);
+    border: 2px solid $primary-white;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    z-index: 10001;
+    box-shadow: 0 10px 25px rgba($primary-dark, 0.45);
+
+    &:hover {
+      background: $primary-orange-hover;
+      transform: scale(1.06);
+      box-shadow: 0 14px 30px rgba($primary-dark, 0.55);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    i {
+      font-size: 1.6rem;
+      color: $primary-white;
+    }
+
+    @media (max-width: 768px) {
+      top: 14px;
+      right: 18px;
+      width: 46px;
+      height: 46px;
+
+      i {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  // Product Title in Modal
+  .modal-product-title {
+    text-align: center;
+    color: $primary-white;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding: 0 60px;
+
+    @media (max-width: 768px) {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      padding: 0 50px;
+    }
+  }
+
+  // Slider Container
+  .slider-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0 80px;
+
+    @media (max-width: 768px) {
+      margin: 0 50px;
+    }
+
+    .slider-image {
+      max-width: 100%;
+      max-height: calc(100vh - 250px);
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: $shadow-xl;
+      animation: imageZoom 0.4s ease;
+
+      @media (max-width: 768px) {
+        max-height: calc(100vh - 200px);
+      }
+    }
+  }
+
+  // Navigation Arrows
+  .slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba($primary-orange, 0.98);
+    border: 2px solid $primary-white;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    z-index: 10000;
+    box-shadow: 0 10px 25px rgba($primary-dark, 0.45);
+
+    &:hover {
+      background: $primary-orange-hover;
+      transform: translateY(-50%) scale(1.08);
+      box-shadow: 0 14px 30px rgba($primary-dark, 0.55);
+    }
+
+    &:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    &.prev {
+      left: 40px;
+    }
+
+    &.next {
+      right: 40px;
+    }
+
+    i {
+      font-size: 2rem;
+      color: $primary-white;
+    }
+
+    @media (max-width: 768px) {
+      width: 50px;
+      height: 50px;
+
+      i {
+        font-size: 1.5rem;
+      }
+
+      &.prev {
+        left: 16px;
+      }
+
+      &.next {
+        right: 16px;
+      }
+    }
+  }
+
+  // Counter and Thumbnails Section
+  .slider-footer {
+    margin-top: 20px;
+    text-align: center;
+
+    .image-counter {
+      color: $primary-white;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 15px;
+
+      span {
+        color: $primary-orange;
+        font-weight: 700;
+      }
+    }
+
+    // Thumbnail Strip
+    .thumbnail-strip {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 10px 0;
+      scrollbar-width: thin;
+      scrollbar-color: $primary-orange $primary-dark-light;
+
+      &::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: $primary-dark-light;
+        border-radius: 3px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $primary-orange;
+        border-radius: 3px;
+      }
+
+      .thumbnail {
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 3px solid transparent;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+        background: $primary-white;
+
+        &:hover {
+          border-color: $primary-orange-light;
+          transform: scale(1.05);
+        }
+
+        &.active {
+          border-color: $primary-orange;
+          transform: scale(1.1);
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          padding: 5px;
+        }
+
+        @media (max-width: 768px) {
+          width: 60px;
+          height: 60px;
+        }
+      }
+    }
+  }
+
+  // Keyboard Navigation Hint
+  .keyboard-hint {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $primary-orange-lighter;
+    font-size: 0.85rem;
+    text-align: center;
+    opacity: 0.7;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes imageZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+// Loading State
+.loading-state {
+  text-align: center;
+  padding: 100px 20px;
+
+  .spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid $primary-orange-lighter;
+    border-top-color: $primary-orange;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 20px;
+  }
+
+  p {
+    color: $primary-dark-light;
+    font-size: 1.1rem;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Empty State
+.empty-state {
+  text-align: center;
+  padding: 100px 20px;
+
+  i {
+    font-size: 4rem;
+    color: $primary-orange-lighter;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    color: $primary-dark;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: $primary-dark-light;
+    font-size: 1.1rem;
+  }
+}
+
+// Info Section
+.info-section {
+  background: $primary-white;
+  border-radius: 12px;
+  padding: 40px;
+  margin-top: 50px;
+  box-shadow: $shadow-md;
+
+  h2 {
+    color: $primary-dark;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: $primary-orange;
+    }
+  }
+
+  p {
+    color: $primary-dark-light;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 10px 0;
+      color: $primary-dark;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+
+      &::before {
+        content: '✓';
+        color: $primary-orange;
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin-right: 15px;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+// CTA Section
+.cta-section {
+  background: $primary-orange-gradient;
+  border-radius: 12px;
+  padding: 50px;
+  margin-top: 50px;
+  text-align: center;
+  color: $primary-white;
+  box-shadow: $shadow-lg;
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.95;
+  }
+
+  .btn {
+    background: $primary-white;
+    color: $primary-orange;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: $shadow-xl;
+      color: $primary-orange-hover;
+    }
+  }
+}

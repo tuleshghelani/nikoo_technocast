@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isScrolled = false;
   isHomePage = false;
   isMobile = false;
+  isTablet = false;
+  isMenuOpen = false;
   private routerSubscription: Subscription | null = null;
 
   constructor(
@@ -31,15 +33,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.isHomePage = this.router.url === '/';
       
       if (isPlatformBrowser(this.platformId)) {
-        this.isMobile = window.innerWidth < 992;
+        this.updateDeviceType();
         this.isScrolled = window.scrollY > 50;
         this.updateNavStyles();
+        this.closeMenu(); // Close menu on navigation
       }
     });
 
     // Initial check for mobile view and scroll position
     if (isPlatformBrowser(this.platformId)) {
-      this.isMobile = window.innerWidth < 992;
+      this.updateDeviceType();
       this.isScrolled = window.scrollY > 50;
       this.updateNavStyles();
     }
@@ -48,8 +51,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     if (isPlatformBrowser(this.platformId)) {
-      this.isMobile = window.innerWidth < 992;
+      this.updateDeviceType();
       this.updateNavStyles();
+      
+      // Close menu if resizing to desktop
+      if (!this.isMobile && !this.isTablet) {
+        this.closeMenu();
+      }
     }
   }
 
@@ -59,6 +67,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.isScrolled = window.scrollY > 50;
       this.updateNavStyles();
     }
+  }
+
+  private updateDeviceType() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    
+    const width = window.innerWidth;
+    this.isMobile = width < 768;
+    this.isTablet = width >= 768 && width < 992;
   }
 
   private updateNavStyles() {
@@ -79,6 +97,33 @@ export class HeaderComponent implements OnInit, OnDestroy {
           header.classList.remove('scrolled');
         }
       }
+    }
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+    
+    this.isMenuOpen = false;
+    const navbarCollapse = document.getElementById('navbarNav');
+    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+      const bsCollapse = (window as any).bootstrap?.Collapse?.getInstance(navbarCollapse);
+      if (bsCollapse) {
+        bsCollapse.hide();
+      } else {
+        navbarCollapse.classList.remove('show');
+      }
+    }
+  }
+
+  onNavLinkClick() {
+    if (this.isMobile || this.isTablet) {
+      this.closeMenu();
     }
   }
 

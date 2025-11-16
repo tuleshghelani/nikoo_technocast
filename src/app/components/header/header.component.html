@@ -1,46 +1,93 @@
-<nav class="navbar navbar-expand-lg fixed-top" [ngClass]="{'scrolled': isScrolled}">
+<nav class="navbar navbar-expand-lg fixed-top" 
+     [ngClass]="{
+       'scrolled': isScrolled, 
+       'menu-open': isMenuOpen,
+       'mobile': isMobile,
+       'tablet': isTablet
+     }"
+     role="navigation"
+     aria-label="Main navigation">
   <div class="container">
-    <a class="navbar-brand" routerLink="/">
-      <img src="assets/logo/nikooLogo.png" alt="Logo">
+    <a class="navbar-brand" routerLink="/" (click)="onNavLinkClick()" aria-label="Nikoo Technocast Home">
+      <img src="assets/logo/nikooLogo.png" alt="Nikoo Technocast Logo">
     </a>
     
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
-            data-bs-target="#navbarNav">
+    <button class="navbar-toggler" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav"
+            (click)="toggleMenu()"
+            [attr.aria-expanded]="isMenuOpen"
+            aria-controls="navbarNav"
+            aria-label="Toggle navigation menu">
       <span class="navbar-toggler-icon"></span>
     </button>
     
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" id="navbarNav" [ngClass]="{'show': isMenuOpen}">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/" routerLinkActive="active" 
-             [routerLinkActiveOptions]="{exact: true}">Home</a>
+          <a class="nav-link" 
+             routerLink="/" 
+             routerLinkActive="active" 
+             [routerLinkActiveOptions]="{exact: true}"
+             (click)="onNavLinkClick()"
+             aria-label="Home page">
+            Home
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about" href="/about" routerLinkActive="active">About</a>
+          <a class="nav-link" 
+             routerLink="/products" 
+             routerLinkActive="active"
+             (click)="onNavLinkClick()"
+             aria-label="Products page">
+            Products
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/products" routerLinkActive="active">Products</a>
+          <a class="nav-link" 
+             routerLinkActive="active"
+             (click)="onNavLinkClick()"
+             aria-label="Company Profile page">
+            Company Profile
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/contact" href="/contact" routerLinkActive="active">Contact</a>
+          <a class="nav-link" 
+             routerLink="/qms" 
+             routerLinkActive="active"
+             (click)="onNavLinkClick()"
+             aria-label="QMS page">
+            QMS
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active">Company Profile</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/qms" href="/qms" routerLinkActive="active">QMS</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/infrastructure" href="/infrastructure" routerLinkActive="active">Infrastructure</a>
+          <a class="nav-link" 
+             routerLink="/infrastructure" 
+             routerLinkActive="active"
+             (click)="onNavLinkClick()"
+             aria-label="Infrastructure page">
+            Infrastructure
+          </a>
         </li> 
-
-        <!-- 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/products" routerLinkActive="active">Products</a>
+          <a class="nav-link" 
+             routerLink="/about" 
+             routerLinkActive="active"
+             (click)="onNavLinkClick()"
+             aria-label="About page">
+            About
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/company-profile" routerLinkActive="active">Company Profile</a>
-        </li>-->
+          <a class="nav-link" 
+             routerLink="/contact" 
+             routerLinkActive="active"
+             (click)="onNavLinkClick()"
+             aria-label="Contact page">
+            Contact
+          </a>
+        </li>
       </ul>
     </div>
   </div>

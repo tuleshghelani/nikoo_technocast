@@ -25,85 +25,40 @@ export interface ProductCategory {
 export class ProductsComponent implements OnInit {
   productCategories: ProductCategory[] = [
     {
-      id: 'brake-components',
-      title: 'Heavy Vehicle Brake Systems Components',
-      icon: 'bi bi-truck',
-      description: 'High-quality, durable brake system components for heavy vehicles ensuring optimal safety and reliability in demanding conditions.',
-      applications: ['Commercial trucks', 'Buses', 'Heavy-duty vehicles', 'Trailers'],
-      materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/home/automobile_casting.png'
-    },
-    {
-      id: 'passenger-car',
-      title: 'Passenger Car Components',
-      icon: 'bi bi-car-front',
-      description: 'Precision-engineered components for passenger vehicles ensuring optimal performance, durability, and safety compliance.',
-      applications: ['Sedans', 'SUVs', 'Luxury vehicles', 'Electric vehicles'],
-      materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/home/automobile_casting.png'
-    },
-    {
-      id: 'compressors',
-      title: 'Compressors Components',
-      icon: 'bi bi-gear',
-      description: 'Durable and efficient components for industrial compressor applications, designed for high-pressure environments and continuous operation.',
-      applications: ['Industrial compressors', 'Air conditioning systems', 'Refrigeration units'],
-      materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/home/automobile_casting.png'
-    },
-    {
-      id: 'earth-movers',
-      title: 'Earth Movers & Heavy Vehicles',
+      id: 'agriculture-earth-movers',
+      title: 'Agriculture and Earth Movers',
       icon: 'bi bi-truck-flatbed',
-      description: 'Robust components designed for heavy-duty earth moving equipment, built to withstand extreme conditions and heavy loads.',
-      applications: ['Excavators', 'Bulldozers', 'Loaders', 'Mining equipment'],
+      description: 'Robust components designed for heavy-duty agricultural and earth moving equipment, built to withstand extreme conditions and heavy loads in demanding environments.',
+      applications: ['Excavators', 'Bulldozers', 'Tractors', 'Agricultural machinery', 'Mining equipment', 'Loaders'],
       materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/home/automobile_casting.png'
+      image: 'assets/Agriculture and Earth Movers/Adapter Clamp.png'
     },
     {
-      id: 'valve-components',
-      title: 'Valve & Valve Components',
-      icon: 'bi bi-valve',
-      description: 'High-precision valve components for various industrial applications, ensuring optimal flow control and system integrity.',
-      applications: ['Industrial valves', 'Control systems', 'Fluid handling'],
-      materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/home/automobile_casting.png'
-    },
-    {
-      id: 'automobile-parts',
-      title: 'Automobile Parts',
+      id: 'automotive-components',
+      title: 'Automotive Components',
       icon: 'bi bi-car-front-fill',
-      description: 'Specialized automobile parts manufactured to OEM specifications with high precision and performance standards.',
-      applications: ['Engine components', 'Transmission parts', 'Chassis components'],
+      description: 'Precision-engineered automotive components manufactured to OEM specifications, ensuring optimal performance, durability, and safety compliance across all vehicle types.',
+      applications: ['Engine components', 'Transmission parts', 'Differential systems', 'Chassis components', 'Brake systems', 'Steering components'],
       materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/home/automobile_casting.png'
+      image: 'assets/Automotive Components/3 Wheeler Differential Cage.png'
     },
     {
-      id: 'machine-tools',
-      title: 'Machine Tools Components',
-      icon: 'bi bi-tools',
-      description: 'Precision-machined components for tooling applications, designed for accuracy and long service life.',
-      applications: ['CNC machines', 'Industrial machinery', 'Manufacturing equipment'],
+      id: 'gear-engineering-components',
+      title: 'Gear and Engineering Components',
+      icon: 'bi bi-gear-wide-connected',
+      description: 'High-precision gear and engineering components for various industrial and municipal applications, designed for accuracy, reliability, and long service life in critical systems.',
+      applications: ['Industrial gearboxes', 'Fire hydrant systems', 'Power transmission', 'Municipal infrastructure', 'Manufacturing equipment', 'Safety systems'],
       materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/home/automobile_casting.png'
+      image: 'assets/Gear and Engineering Components/4 Window Fire Hydrant Housing.png'
     },
     {
-      id: 'oil-gas',
+      id: 'oil-gas-components',
       title: 'Oil & Gas Components',
       icon: 'bi bi-fuel-pump',
-      description: 'High-performance components for the oil and gas industry, engineered to withstand harsh environments and pressure conditions.',
-      applications: ['Oil rigs', 'Refineries', 'Pumping stations', 'Processing facilities'],
+      description: 'High-performance components for the oil and gas industry, engineered to withstand harsh environments, extreme pressure conditions, and demanding operational requirements.',
+      applications: ['Oil rigs', 'Refineries', 'Pumping stations', 'Processing facilities', 'Pipeline systems', 'Drilling equipment'],
       materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/home/automobile_casting.png'
-    },
-    {
-      id: 'transmission',
-      title: 'Transmission Components',
-      icon: 'bi bi-gear-wide-connected',
-      description: 'Critically engineered transmission components ensuring smooth power delivery and operational efficiency.',
-      applications: ['Automotive transmissions', 'Industrial gearboxes', 'Power transfer systems'],
-      materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/home/automobile_casting.png'
+      image: 'assets/Oil & Gas Components/2_ Hammer Union.png'
     }
   ];
 
