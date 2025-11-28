@@ -93,52 +93,42 @@ export class QmsComponent implements OnInit {
       });
     }
 
-    // Add structured data
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "ManufacturingFacility",
-      "name": "Nikoo Technocast",
-      "description": "Leading manufacturer of Gray & Ductile iron castings with advanced quality management systems",
-      "areaServed": "Global",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Quality Testing Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Chemical Analysis",
-              "description": "Optical Emission Spectrometer testing"
+    // Add structured data only in browser environment
+    if (isPlatformBrowser(this.platformId)) {
+      const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "ManufacturingFacility",
+        "name": "Nikoo Technocast",
+        "description": "Leading manufacturer of Gray & Ductile iron castings with advanced quality management systems",
+        "areaServed": "Global",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Quality Testing Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Chemical Analysis",
+                "description": "Optical Emission Spectrometer testing"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Physical Testing",
+                "description": "Comprehensive material strength testing"
+              }
             }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Physical Testing",
-              "description": "Comprehensive material strength testing"
-            }
-          }
-        ]
-      }
-    };
+          ]
+        }
+      };
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify(structuredData);
-    document.head.appendChild(script);
-
-    const infrastructureData = {
-      "@context": "https://schema.org",
-      "@type": "ManufacturingPlant",
-      "name": "Nikoo Technocast Manufacturing Facility",
-      "manufacturingCapacity": "250 kgs molding capability",
-      "equipment": [
-        "Green Sand Molding Line",
-        "Optical Emission Spectrometer",
-        "Quality Control Systems"
-      ]
-    };
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify(structuredData);
+      document.head.appendChild(script);
+    }
   }
 }
