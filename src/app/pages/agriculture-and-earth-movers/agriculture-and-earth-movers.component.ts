@@ -1,7 +1,8 @@
-import { Component, OnInit, HostListener, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, PLATFORM_ID, Inject } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router, RouterModule } from '@angular/router';
+import * as AOS from 'aos';
 
 interface Product {
   id: string;
@@ -17,7 +18,7 @@ interface Product {
   templateUrl: './agriculture-and-earth-movers.component.html',
   styleUrl: './agriculture-and-earth-movers.component.scss'
 })
-export class AgricultureAndEarthMoversComponent implements OnInit {
+export class AgricultureAndEarthMoversComponent implements OnInit, OnDestroy {
   products: Product[] = [
     { 
       id: 'adapter-clamp',
@@ -211,6 +212,15 @@ export class AgricultureAndEarthMoversComponent implements OnInit {
   showSlider = false;
   currentImageIndex = 0;
   isClosing = false;
+  
+  // Touch event handling
+  private touchStartX = 0;
+  private touchStartY = 0;
+  private touchEndX = 0;
+  private touchEndY = 0;
+  private touchStartTime = 0;
+  private readonly SWIPE_THRESHOLD = 50;
+  private readonly TAP_THRESHOLD = 300; // milliseconds
 
   constructor(
     private title: Title,
@@ -232,6 +242,26 @@ export class AgricultureAndEarthMoversComponent implements OnInit {
       name: 'keywords', 
       content: 'agriculture components, earth movers, iron castings, gear housing, hydraulic components, rotavator parts, harvester components, Nikoo Technocast'
     });
+
+    // Initialize AOS animations only in browser environment
+    if (isPlatformBrowser(this.platformId)) {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+        delay: 0
+      });
+    }
+  }
+
+  ngOnDestroy() {
+    // Cleanup if needed
+    if (isPlatformBrowser(this.platformId)) {
+      // Restore body scroll if modal is open
+      if (this.showSlider) {
+        document.body.style.overflow = 'auto';
+      }
+    }
   }
 
   // Open slider at specific index
@@ -286,26 +316,95 @@ export class AgricultureAndEarthMoversComponent implements OnInit {
     return this.products[this.currentImageIndex];
   }
 
-  // Keyboard navigation
+  // Prevent click propagation from modal content
+  onModalContentClick(event: Event) {
+    event.stopPropagation();
+  }
+
+  // Touch event handlers for mobile optimization
+  onTouchStart(event: TouchEvent) {
+    this.touchStartX = event.touches[0].clientX;
+    this.touchStartY = event.touches[0].clientY;
+    this.touchStartTime = Date.now();
+  }
+
+  onTouchEnd(event: TouchEvent) {
+    if (!event.changedTouches || event.changedTouches.length === 0) {
+      return;
+    }
+
+    this.touchEndX = event.changedTouches[0].clientX;
+    this.touchEndY = event.changedTouches[0].clientY;
+    const touchDuration = Date.now() - this.touchStartTime;
+
+    const deltaX = this.touchEndX - this.touchStartX;
+    const deltaY = this.touchEndY - this.touchStartY;
+    const absDeltaX = Math.abs(deltaX);
+    const absDeltaY = Math.abs(deltaY);
+
+    // Prevent default if it's a swipe (not a tap)
+    if (absDeltaX > this.SWIPE_THRESHOLD || absDeltaY > this.SWIPE_THRESHOLD) {
+      event.preventDefault();
+      return;
+    }
+
+    // Handle tap (if touch duration is short and movement is minimal)
+    if (touchDuration < this.TAP_THRESHOLD && absDeltaX < 10 && absDeltaY < 10) {
+      // Allow the click event to proceed naturally
+      return;
+    }
+  }
+
+  // Enhanced keyboard navigation with touch support
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if (this.showSlider) {
       switch(event.key) {
         case 'ArrowLeft':
+          event.preventDefault();
           this.previousImage();
           break;
         case 'ArrowRight':
+          event.preventDefault();
           this.nextImage();
           break;
         case 'Escape':
+          event.preventDefault();
           this.closeSlider();
           break;
       }
     }
   }
 
-  // Prevent click propagation from modal content
-  onModalContentClick(event: Event) {
-    event.stopPropagation();
+  // Handle swipe gestures in modal
+  @HostListener('touchstart', ['$event'])
+  onModalTouchStart(event: TouchEvent) {
+    if (this.showSlider && event.target instanceof HTMLElement) {
+      const target = event.target.closest('.slider-container');
+      if (target) {
+        this.touchStartX = event.touches[0].clientX;
+        this.touchStartTime = Date.now();
+      }
+    }
+  }
+
+  @HostListener('touchend', ['$event'])
+  onModalTouchEnd(event: TouchEvent) {
+    if (this.showSlider && event.target instanceof HTMLElement) {
+      const target = event.target.closest('.slider-container');
+      if (target && event.changedTouches && event.changedTouches.length > 0) {
+        this.touchEndX = event.changedTouches[0].clientX;
+        const deltaX = this.touchEndX - this.touchStartX;
+        const absDeltaX = Math.abs(deltaX);
+
+        if (absDeltaX > this.SWIPE_THRESHOLD) {
+          if (deltaX > 0) {
+            this.previousImage();
+          } else {
+            this.nextImage();
+          }
+        }
+      }
+    }
   }
 }
