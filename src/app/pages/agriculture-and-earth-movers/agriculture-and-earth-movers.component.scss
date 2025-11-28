@@ -173,7 +173,7 @@
 
 // Products Section
 .products-section {
-  background: $primary-white;
+  background: linear-gradient(135deg, $primary-white 0%, $primary-orange-lightest 100%);
   position: relative;
 
   .container {
@@ -793,7 +793,8 @@
         }
 
         .product-image {
-          height: 200px;
+          height: auto;
+          aspect-ratio: 1 / 1;
 
           img {
             padding: 18px;
@@ -919,7 +920,8 @@
         }
 
         .product-image {
-          height: 180px;
+          height: auto;
+          aspect-ratio: 1 / 1;
 
           img {
             padding: 15px;
