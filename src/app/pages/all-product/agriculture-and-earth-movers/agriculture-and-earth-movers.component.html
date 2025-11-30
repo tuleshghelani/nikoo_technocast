@@ -12,22 +12,24 @@
             <li class="breadcrumb-item active" aria-current="page">Agriculture and Earth Movers</li>
           </ol>
         </nav>
-        
+
         <h1 class="banner-title" data-aos="fade-up" data-aos-delay="100">
           Agriculture and Earth Movers
           <span class="highlight">Components</span>
         </h1>
         <p class="banner-description" data-aos="fade-up" data-aos-delay="200">
-          Robust and precision-engineered components designed for heavy-duty agricultural and earth moving equipment. 
+          Robust and precision-engineered components designed for heavy-duty agricultural and earth moving equipment.
           Built to withstand extreme conditions and heavy loads in demanding environments.
         </p>
       </div>
     </div>
-    
+
     <!-- Animated Wave Shape -->
     <div class="wave-shape">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-        <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        <path fill="#ffffff" fill-opacity="1"
+          d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        </path>
       </svg>
     </div>
   </section>
@@ -38,45 +40,27 @@
       <header class="section-header text-center" data-aos="fade-up">
         <h2 class="section-title" id="products-heading">Our Product Range</h2>
         <p class="section-subtitle">
-          Explore our comprehensive collection of <strong>precision-engineered components</strong> for agriculture and earth moving equipment
+          Explore our comprehensive collection of <strong>precision-engineered components</strong> for agriculture and
+          earth moving equipment
         </p>
       </header>
-      
+
       <div class="products-grid" role="list">
-        <div class="row g-4">
-          <article class="col-xl-3 col-lg-4 col-md-6 col-sm-6" 
-               *ngFor="let product of products; let i = index" 
-               data-aos="fade-up" 
-               [attr.data-aos-delay]="i * 30"
-               role="listitem">
-            <div class="product-card" 
-                 (click)="openSlider(i)"
-                 (keydown.enter)="openSlider(i)"
-                 (touchstart)="onTouchStart($event)"
-                 (touchend)="onTouchEnd($event)"
-                 tabindex="0"
-                 [attr.aria-label]="'View ' + product.name">
+        <div class=" row g-4">
+          <article class="col-xl-3 col-lg-4 col-md-6 col-sm-6" *ngFor="let product of products; let i = index"
+            data-aos="fade-up" [attr.data-aos-delay]="i * 30" role="listitem">
+            <div class="product-card" (click)="openSlider(i)" (keydown.enter)="openSlider(i)"
+              (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)" tabindex="0"
+              [attr.aria-label]="'View ' + product.name">
               <figure class="product-image">
-                <img [src]="product.image" 
-                     [alt]="product.name + ' - Agriculture and Earth Mover Component'" 
-                     loading="lazy"
-                     width="220"
-                     height="220">
+                <img [src]="product.image" [alt]="product.name + ' - Agriculture and Earth Mover Component'"
+                  loading="lazy" width="220" height="220">
                 <div class="product-overlay">
                   <div class="overlay-content">
-                    <i class="bi bi-eye view-icon" aria-hidden="true"></i>
-                    <span class="view-text">Quick View</span>
+                    <h3 class="product-name">{{ product.name }}</h3>
                   </div>
                 </div>
               </figure>
-              <div class="product-info">
-                <h3>{{ product.name }}</h3>
-                <p class="product-description" *ngIf="product.description">{{ product.description }}</p>
-                <span class="view-btn">
-                  View Details
-                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
-                </span>
-              </div>
             </div>
           </article>
         </div>
@@ -92,17 +76,17 @@
           <div class="about-content">
             <span class="section-subtitle">ABOUT OUR PRODUCTS</span>
             <h2 class="section-title">
-              Precision Engineering for 
+              Precision Engineering for
               <span class="highlight">Heavy-Duty Applications</span>
             </h2>
             <p class="description">
-              At Nikoo Technocast, we specialize in manufacturing high-quality iron castings for agriculture 
-              and earth moving equipment. Our components are engineered to deliver exceptional performance, 
+              At Nikoo Technocast, we specialize in manufacturing high-quality iron castings for agriculture
+              and earth moving equipment. Our components are engineered to deliver exceptional performance,
               durability, and reliability in the most demanding environments.
             </p>
             <p class="description">
-              Each component undergoes rigorous quality control to ensure it meets international standards 
-              and exceeds customer expectations. We use premium Gray Iron (C.I) and Ductile Iron (S.G) 
+              Each component undergoes rigorous quality control to ensure it meets international standards
+              and exceeds customer expectations. We use premium Gray Iron (C.I) and Ductile Iron (S.G)
               materials for optimal strength and longevity.
             </p>
             <div class="stats-grid">
@@ -185,59 +169,97 @@
 </div>
 
 <!-- Image Slider Modal -->
-<div class="image-slider-modal" 
-     *ngIf="showSlider" 
-     [class.closing]="isClosing"
-     (click)="closeSlider()">
-  
+<div class="image-slider-modal" *ngIf="showSlider" [class.closing]="isClosing" (click)="closeSlider()">
   <div class="modal-content-wrapper" (click)="onModalContentClick($event)">
     <!-- Close Button -->
     <button class="close-button" (click)="closeSlider()" aria-label="Close slider">
-      X
+      <!-- <i class="bi bi-x-lg"></i> -->
+       X
     </button>
 
-    <!-- Product Title -->
-    <h2 class="modal-product-title">{{ currentProduct.name }}</h2>
+    <!-- Modal Content Layout -->
+    <div class="modal-main-content">
+      <!-- Image Section (Left on Desktop, Top on Mobile) -->
+      <div class="modal-image-section">
+        <!-- Slider Container -->
+        <div class="slider-container">
+          <!-- Previous Button -->
+          <button class="slider-nav prev" (click)="previousImage(); $event.stopPropagation()"
+            aria-label="Previous image">
+            <!-- <i class="bi bi-chevron-left"></i> -->
+             <
+          </button>
 
-    <!-- Slider Container -->
-    <div class="slider-container">
-      <!-- Previous Button -->
-      <button class="slider-nav prev" (click)="previousImage(); $event.stopPropagation()" aria-label="Previous image">
-        <
-      </button>
+          <!-- Current Image -->
+          <img [src]="currentProduct.image" [alt]="currentProduct.name" class="slider-image" loading="lazy">
 
-      <!-- Current Image -->
-      <img [src]="currentProduct.image" 
-           [alt]="currentProduct.name" 
-           class="slider-image"
-           loading="lazy">
+          <!-- Next Button -->
+          <button class="slider-nav next" (click)="nextImage(); $event.stopPropagation()" aria-label="Next image">
+            <!-- <i class="bi bi-chevron-right"></i> -->
+             >
+          </button>
+        </div>
 
-      <!-- Next Button -->
-      <button class="slider-nav next" (click)="nextImage(); $event.stopPropagation()" aria-label="Next image">
-        >
-      </button>
-    </div>
-
-    <!-- Slider Footer -->
-    <div class="slider-footer">
-      <!-- Image Counter -->
-      <div class="image-counter">
-        <span>{{ currentImageIndex + 1 }}</span> / {{ products.length }}
+        <!-- Thumbnail Strip -->
+        <div class="thumbnail-strip">
+          <div class="thumbnail" *ngFor="let product of products; let i = index"
+            [class.active]="i === currentImageIndex" (click)="goToImage(i); $event.stopPropagation()">
+            <img [src]="product.image" [alt]="product.name" loading="lazy">
+          </div>
+        </div>
       </div>
 
-      <!-- Thumbnail Strip -->
-      <div class="thumbnail-strip">
-        <div class="thumbnail" 
-             *ngFor="let product of products; let i = index"
-             [class.active]="i === currentImageIndex"
-             (click)="goToImage(i); $event.stopPropagation()">
-          <img [src]="product.image" [alt]="product.name" loading="lazy">
+      <!-- Product Details Section (Right on Desktop, Bottom on Mobile) -->
+      <div class="modal-details-section">
+        <div class="details-content">
+          <h2 class="product-title">{{ currentProduct.name }}</h2>
+
+          <div class="product-meta">
+            <span class="meta-label">
+              <i class="bi bi-tag"></i>
+              Category
+            </span>
+            <span class="meta-value">Agriculture & Earth Movers</span>
+          </div>
+
+          <div class="product-description-section" *ngIf="currentProduct.description">
+            <h3 class="section-heading">Description</h3>
+            <p class="description-text">{{ currentProduct.description }}</p>
+          </div>
+
+          <div class="product-features">
+            <h3 class="section-heading">Key Features</h3>
+            <ul class="features-list">
+              <li><i class="bi bi-check-circle-fill"></i> High-quality iron casting</li>
+              <li><i class="bi bi-check-circle-fill"></i> Precision engineered</li>
+              <li><i class="bi bi-check-circle-fill"></i> Heavy-duty construction</li>
+              <li><i class="bi bi-check-circle-fill"></i> Optimal durability</li>
+            </ul>
+          </div>
+
+          <div class="product-actions">
+            <button class="action-btn primary-btn">
+              <i class="bi bi-envelope"></i>
+              Request Quote
+            </button>
+            <button class="action-btn secondary-btn" (click)="closeSlider()">
+              <i class="bi bi-x-circle"></i>
+              Close
+            </button>
+          </div>
+        </div>
+
+        <!-- Image Counter -->
+        <div class="image-counter">
+          <i class="bi bi-images"></i>
+          <span>{{ currentImageIndex + 1 }} / {{ products.length }}</span>
         </div>
       </div>
     </div>
 
     <!-- Keyboard Navigation Hint -->
     <div class="keyboard-hint">
+      <i class="bi bi-keyboard"></i>
       Use arrow keys to navigate • ESC to close
     </div>
   </div>
