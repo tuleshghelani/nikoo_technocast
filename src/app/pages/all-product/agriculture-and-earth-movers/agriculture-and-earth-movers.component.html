@@ -44,32 +44,47 @@
         </p>
       </header>
       
-      <div class="products-grid" role="list">
-        <div class="row g-4">
-          <article class="col-xl-3 col-lg-4 col-md-6 col-sm-6" 
-               *ngFor="let product of products; let i = index" 
-               data-aos="fade-up" 
-               [attr.data-aos-delay]="i * 30"
-               role="listitem">
+      <!-- Bento Grid Layout -->
+      <div class="bento-grid" role="list" aria-label="Product catalog grid">
+        <ng-container *ngFor="let product of products; let i = index">
+          <!-- Pattern: Every 8 products forms a repeating bento block -->
+          <!-- Position 0: Large featured (2x2) -->
+          <article 
+            class="bento-item"
+            [class.bento-large]="i % 8 === 0"
+            [class.bento-tall]="i % 8 === 3 || i % 8 === 7"
+            [class.bento-wide]="i % 8 === 5"
+            [class.bento-standard]="i % 8 === 1 || i % 8 === 2 || i % 8 === 4 || i % 8 === 6"
+            data-aos="fade-up" 
+            [attr.data-aos-delay]="(i % 8) * 50"
+            role="listitem">
             <div class="product-card" 
+                 [class.featured-card]="i % 8 === 0"
+                 [class.tall-card]="i % 8 === 3 || i % 8 === 7"
+                 [class.wide-card]="i % 8 === 5"
                  (click)="openSlider(i)"
                  (keydown.enter)="openSlider(i)"
                  (touchstart)="onTouchStart($event)"
                  (touchend)="onTouchEnd($event)"
                  tabindex="0"
-                 [attr.aria-label]="'View ' + product.name">
+                 [attr.aria-label]="'View ' + product.name + ' - Click for details'">
               <figure class="product-image">
                 <img [src]="product.image" 
-                     [alt]="product.name + ' - Agriculture and Earth Mover Component'" 
+                     [alt]="product.name + ' - Premium Agriculture and Earth Mover Component by Nikoo Technocast'" 
                      loading="lazy"
-                     width="220"
-                     height="220">
+                     [width]="i % 8 === 0 ? 400 : (i % 8 === 3 || i % 8 === 7) ? 220 : 220"
+                     [height]="i % 8 === 0 ? 400 : (i % 8 === 3 || i % 8 === 7) ? 440 : 220">
                 <div class="product-overlay">
                   <div class="overlay-content">
                     <i class="bi bi-eye view-icon" aria-hidden="true"></i>
                     <span class="view-text">Quick View</span>
                   </div>
                 </div>
+                <!-- Featured Badge for large items -->
+                <span class="product-badge" *ngIf="i % 8 === 0" aria-label="Featured product">
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  Featured
+                </span>
               </figure>
               <div class="product-info">
                 <h3>{{ product.name }}</h3>
@@ -81,7 +96,7 @@
               </div>
             </div>
           </article>
-        </div>
+        </ng-container>
       </div>
     </div>
   </section>
