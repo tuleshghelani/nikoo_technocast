@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { BannerComponent } from '../../components/shared/banner/banner.component';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
 import * as AOS from 'aos';
@@ -13,12 +14,13 @@ export interface ProductCategory {
   applications: string[];
   materials: string[];
   image: string;
+  url: string;
 }
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [BannerComponent, CommonModule],
+  imports: [BannerComponent, CommonModule, RouterModule],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
@@ -31,7 +33,8 @@ export class ProductsComponent implements OnInit {
       description: 'Robust components designed for heavy-duty agricultural and earth moving equipment, built to withstand extreme conditions and heavy loads in demanding environments.',
       applications: ['Excavators', 'Bulldozers', 'Tractors', 'Agricultural machinery', 'Mining equipment', 'Loaders'],
       materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/Agriculture and Earth Movers/Adapter Clamp.png'
+      image: 'assets/Agriculture and Earth Movers/Adapter Clamp.png',
+      url: 'product/agriculture-and-earth-movers'
     },
     {
       id: 'automotive-components',
@@ -40,7 +43,8 @@ export class ProductsComponent implements OnInit {
       description: 'Precision-engineered automotive components manufactured to OEM specifications, ensuring optimal performance, durability, and safety compliance across all vehicle types.',
       applications: ['Engine components', 'Transmission parts', 'Differential systems', 'Chassis components', 'Brake systems', 'Steering components'],
       materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/Automotive Components/3 Wheeler Differential Cage.png'
+      image: 'assets/Automotive Components/3 Wheeler Differential Cage.png',
+      url: 'product/automotive-components'
     },
     {
       id: 'gear-engineering-components',
@@ -49,7 +53,8 @@ export class ProductsComponent implements OnInit {
       description: 'High-precision gear and engineering components for various industrial and municipal applications, designed for accuracy, reliability, and long service life in critical systems.',
       applications: ['Industrial gearboxes', 'Fire hydrant systems', 'Power transmission', 'Municipal infrastructure', 'Manufacturing equipment', 'Safety systems'],
       materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/Gear and Engineering Components/4 Window Fire Hydrant Housing.png'
+      image: 'assets/Gear and Engineering Components/4 Window Fire Hydrant Housing.png',
+      url: '/gear-engineering-components'
     },
     {
       id: 'oil-gas-components',
@@ -58,7 +63,8 @@ export class ProductsComponent implements OnInit {
       description: 'High-performance components for the oil and gas industry, engineered to withstand harsh environments, extreme pressure conditions, and demanding operational requirements.',
       applications: ['Oil rigs', 'Refineries', 'Pumping stations', 'Processing facilities', 'Pipeline systems', 'Drilling equipment'],
       materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/Oil & Gas Components/2_ Hammer Union.png'
+      image: 'assets/Oil & Gas Components/2_ Hammer Union.png',
+      url: '/oil-gas-components'
     }
   ];
 

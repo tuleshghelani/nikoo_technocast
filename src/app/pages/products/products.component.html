@@ -101,7 +101,7 @@
             </div>
             <h3>{{category.title}}</h3>
             <p>{{category.description}}</p>
-            <a href="javascript:void(0)" class="category-link" (click)="showProductDetails(category)">
+            <a [routerLink]="'/' + category.url" class="category-link">
               View Details <i class="bi bi-arrow-right"></i>
             </a>
           </div>
@@ -242,7 +242,7 @@
             </ul>
             
             <div class="inquiry-button mt-4">
-              <a routerLink="/contact" class="btn btn-primary">Request Quotation</a>
+              <a [routerLink]="selectedCategory?.url" class="btn btn-primary">Request Quotation</a>
             </div>
           </div>
         </div>
