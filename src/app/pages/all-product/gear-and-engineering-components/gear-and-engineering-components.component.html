@@ -1,0 +1,296 @@
+<!-- Product Detail Page -->
+<div class="product-detail-page">
+  <!-- Premium Hero Banner with Wave Effect -->
+  <section class="hero-banner">
+    <div class="banner-overlay"></div>
+    <div class="container">
+      <div class="banner-content" data-aos="fade-up">
+        <nav aria-label="breadcrumb" class="breadcrumb-nav">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+            <li class="breadcrumb-item"><a routerLink="/products">Products</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Gear and Engineering Components</li>
+          </ol>
+        </nav>
+
+        <h1 class="banner-title" data-aos="fade-up" data-aos-delay="100">
+          Gear and Engineering
+          <span class="highlight">Components</span>
+        </h1>
+        <p class="banner-description" data-aos="fade-up" data-aos-delay="200">
+          Precision-engineered gear and engineering components designed for demanding industrial applications.
+          Our components deliver exceptional performance, reliability, and durability across diverse sectors.
+        </p>
+      </div>
+    </div>
+
+    <!-- Animated Wave Shape -->
+    <div class="wave-shape">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#ffffff" fill-opacity="1"
+          d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        </path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Products Grid Section -->
+  <section class="products-section section-padding" aria-labelledby="products-heading">
+    <div class="container">
+      <header class="section-header text-center" data-aos="fade-up">
+        <h2 class="section-title" id="products-heading">Our Product Range</h2>
+        <p class="section-subtitle">
+          Explore our comprehensive collection of <strong>precision-engineered components</strong> for gear and engineering applications
+        </p>
+      </header>
+      
+      <!-- Bento Grid Layout -->
+      <div class="bento-grid" role="list" aria-label="Product catalog grid">
+        <ng-container *ngFor="let product of products; let i = index">
+          <!-- Pattern: Every 8 products forms a repeating bento block -->
+          <!-- Position 0: Large featured (2x2) -->
+          <article 
+            class="bento-item"
+            [class.bento-large]="i % 8 === 0"
+            [class.bento-tall]="i % 8 === 3 || i % 8 === 7"
+            [class.bento-wide]="i % 8 === 5"
+            [class.bento-standard]="i % 8 === 1 || i % 8 === 2 || i % 8 === 4 || i % 8 === 6"
+            data-aos="fade-up" 
+            [attr.data-aos-delay]="(i % 8) * 50"
+            role="listitem">
+            <div class="product-card" 
+                 [class.featured-card]="i % 8 === 0"
+                 [class.tall-card]="i % 8 === 3 || i % 8 === 7"
+                 [class.wide-card]="i % 8 === 5"
+                 (click)="openSlider(i)"
+                 (keydown.enter)="openSlider(i)"
+                 (touchstart)="onTouchStart($event)"
+                 (touchend)="onTouchEnd($event)"
+                 tabindex="0"
+                 [attr.aria-label]="'View ' + product.name + ' - Click for details'">
+              <figure class="product-image">
+                <img [src]="product.image" 
+                     [alt]="product.name + ' - Premium Gear and Engineering Component by Nikoo Technocast'" 
+                     loading="lazy"
+                     [width]="i % 8 === 0 ? 400 : (i % 8 === 3 || i % 8 === 7) ? 220 : 220"
+                     [height]="i % 8 === 0 ? 400 : (i % 8 === 3 || i % 8 === 7) ? 440 : 220">
+                <div class="product-overlay">
+                  <div class="overlay-content">
+                    <i class="bi bi-eye view-icon" aria-hidden="true"></i>
+                    <span class="view-text">Quick View</span>
+                  </div>
+                </div>
+                <!-- Featured Badge for large items -->
+                <span class="product-badge" *ngIf="i % 8 === 0" aria-label="Featured product">
+                  <i class="bi bi-star-fill" aria-hidden="true"></i>
+                  Featured
+                </span>
+              </figure>
+              <div class="product-info">
+                <h3>{{ product.name }}</h3>
+                <p class="product-description" *ngIf="product.description">{{ product.description }}</p>
+                <span class="view-btn">
+                  View Details
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
+          </article>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section section-padding">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="about-content">
+            <span class="section-subtitle">ABOUT OUR PRODUCTS</span>
+            <h2 class="section-title">
+              Precision Engineering for
+              <span class="highlight">Industrial Excellence</span>
+            </h2>
+            <p class="description">
+              At Nikoo Technocast, we specialize in manufacturing high-quality iron castings for gear
+              and engineering applications. Our components are engineered to deliver exceptional performance,
+              durability, and reliability across diverse industrial sectors.
+            </p>
+            <p class="description">
+              Each component undergoes rigorous quality control to ensure it meets international standards
+              and exceeds customer expectations. We use premium Gray Iron (C.I) and Ductile Iron (S.G)
+              materials for optimal strength and longevity.
+            </p>
+            <div class="stats-grid">
+              <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-icon">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+                <div class="stat-content">
+                  <span class="stat-number">100%</span>
+                  <p>Quality Assured</p>
+                </div>
+              </div>
+              <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-icon">
+                  <i class="bi bi-globe"></i>
+                </div>
+                <div class="stat-content">
+                  <span class="stat-number">50+</span>
+                  <p>Countries Served</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="features-box">
+            <h3 class="features-title">Key Features</h3>
+            <ul class="feature-list">
+              <li data-aos="fade-left" data-aos-delay="100">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>High-strength Gray and Ductile Iron construction</span>
+              </li>
+              <li data-aos="fade-left" data-aos-delay="150">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Precision machining for perfect fit and alignment</span>
+              </li>
+              <li data-aos="fade-left" data-aos-delay="200">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Engineered for demanding industrial applications</span>
+              </li>
+              <li data-aos="fade-left" data-aos-delay="250">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Superior wear and corrosion resistance</span>
+              </li>
+              <li data-aos="fade-left" data-aos-delay="300">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Compliant with international quality standards</span>
+              </li>
+              <li data-aos="fade-left" data-aos-delay="350">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Custom manufacturing and OEM solutions available</span>
+              </li>
+              <li data-aos="fade-left" data-aos-delay="400">
+                <i class="bi bi-check-circle-fill"></i>
+                <span>Tested for extreme operating conditions</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section section-padding">
+    <div class="container">
+      <div class="cta-content" data-aos="zoom-in">
+        <div class="cta-icon">
+          <i class="bi bi-gear-wide-connected"></i>
+        </div>
+        <h3>Need Custom Components?</h3>
+        <p>Contact us for customized solutions tailored to your specific requirements</p>
+        <a routerLink="/contact" class="cta-btn">
+          <span class="btn-text">Get a Quote</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Image Slider Modal -->
+<div class="image-slider-modal" *ngIf="showSlider" [class.closing]="isClosing" (click)="closeSlider()">
+  <div class="modal-content-wrapper" (click)="onModalContentClick($event)">
+    <!-- Close Button -->
+    <button class="close-button" (click)="closeSlider()" aria-label="Close slider">
+      X
+    </button>
+
+    <!-- Modal Content Layout -->
+    <div class="modal-main-content">
+      <!-- Image Section (Left on Desktop, Top on Mobile) -->
+      <div class="modal-image-section">
+        <!-- Slider Container -->
+        <div class="slider-container">
+          <!-- Previous Button -->
+          <button class="slider-nav prev" (click)="previousImage(); $event.stopPropagation()"
+            aria-label="Previous image">
+            <
+          </button>
+
+          <!-- Current Image -->
+          <img [src]="currentProduct.image" [alt]="currentProduct.name" class="slider-image" loading="lazy">
+
+          <!-- Next Button -->
+          <button class="slider-nav next" (click)="nextImage(); $event.stopPropagation()" aria-label="Next image">
+            >
+          </button>
+        </div>
+
+        <!-- Thumbnail Strip -->
+        <div class="thumbnail-strip">
+          <div class="thumbnail" *ngFor="let product of products; let i = index"
+            [class.active]="i === currentImageIndex" (click)="goToImage(i); $event.stopPropagation()">
+            <img [src]="product.image" [alt]="product.name" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Details Section (Right on Desktop, Bottom on Mobile) -->
+      <div class="modal-details-section">
+        <div class="details-content">
+          <h2 class="product-title">{{ currentProduct.name }}</h2>
+
+          <div class="product-meta">
+            <span class="meta-label">
+              <i class="bi bi-tag"></i>
+              Category
+            </span>
+            <span class="meta-value">Gear & Engineering Components</span>
+          </div>
+
+          <div class="product-description-section" *ngIf="currentProduct.description">
+            <h3 class="section-heading">Description</h3>
+            <p class="description-text">{{ currentProduct.description }}</p>
+          </div>
+
+          <div class="product-features">
+            <h3 class="section-heading">Key Features</h3>
+            <ul class="features-list">
+              <li><i class="bi bi-check-circle-fill"></i> High-quality iron casting</li>
+              <li><i class="bi bi-check-circle-fill"></i> Precision engineered</li>
+              <li><i class="bi bi-check-circle-fill"></i> Industrial-grade construction</li>
+              <li><i class="bi bi-check-circle-fill"></i> Optimal durability</li>
+            </ul>
+          </div>
+
+          <div class="product-actions">
+            <button class="action-btn primary-btn">
+              <i class="bi bi-envelope"></i>
+              Request Quote
+            </button>
+            <button class="action-btn secondary-btn" (click)="closeSlider()">
+              <i class="bi bi-x-circle"></i>
+              Close
+            </button>
+          </div>
+        </div>
+
+        <!-- Image Counter -->
+        <div class="image-counter">
+          <i class="bi bi-images"></i>
+          <span>{{ currentImageIndex + 1 }} / {{ products.length }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Keyboard Navigation Hint -->
+    <div class="keyboard-hint">
+      <i class="bi bi-keyboard"></i>
+      Use arrow keys to navigate • ESC to close
+    </div>
+  </div>
+</div>

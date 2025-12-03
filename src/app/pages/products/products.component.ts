@@ -54,7 +54,7 @@ export class ProductsComponent implements OnInit {
       applications: ['Industrial gearboxes', 'Fire hydrant systems', 'Power transmission', 'Municipal infrastructure', 'Manufacturing equipment', 'Safety systems'],
       materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
       image: 'assets/Gear and Engineering Components/4 Window Fire Hydrant Housing.png',
-      url: '/gear-engineering-components'
+      url: 'product/gear-and-engineering-components'
     },
     {
       id: 'oil-gas-components',

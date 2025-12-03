@@ -8,6 +8,7 @@ import { QmsComponent } from './pages/qms/qms.component';
 import { InfrastructureComponent } from './pages/infrastructure/infrastructure.component';
 import { AgricultureAndEarthMoversComponent } from './pages/all-product/agriculture-and-earth-movers/agriculture-and-earth-movers.component';
 import { AutomotiveComponentsComponent } from './pages/all-product/automotive-components/automotive-components.component';
+import { GearAndEngineeringComponentsComponent } from './pages/all-product/gear-and-engineering-components/gear-and-engineering-components.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -19,5 +20,6 @@ export const routes: Routes = [
     { path: 'infrastructure', component: InfrastructureComponent },
     { path: 'product/agriculture-and-earth-movers', component: AgricultureAndEarthMoversComponent },
     { path: 'product/automotive-components', component: AutomotiveComponentsComponent },
+    { path: 'product/gear-and-engineering-components', component: GearAndEngineeringComponentsComponent },
     { path: '**', redirectTo: '' }
 ];
