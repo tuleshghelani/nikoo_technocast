@@ -9,17 +9,17 @@
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
             <li class="breadcrumb-item"><a routerLink="/products">Products</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Gear and Engineering Components</li>
+            <li class="breadcrumb-item active" aria-current="page">Oil and Gas Components</li>
           </ol>
         </nav>
 
         <h1 class="banner-title" data-aos="fade-up" data-aos-delay="100">
-          Gear and Engineering
+          Oil and Gas
           <span class="highlight">Components</span>
         </h1>
         <p class="banner-description" data-aos="fade-up" data-aos-delay="200">
-          Precision-engineered gear and engineering components designed for demanding industrial applications.
-          Our components deliver exceptional performance, reliability, and durability across diverse sectors.
+          Premium-grade valves, unions, and specialized fittings engineered for the demanding requirements 
+          of the oil and gas industry. Built for extreme pressure, temperature, and corrosive environments.
         </p>
       </div>
     </div>
@@ -40,7 +40,7 @@
       <header class="section-header text-center" data-aos="fade-up">
         <h2 class="section-title" id="products-heading">Our Product Range</h2>
         <p class="section-subtitle">
-          Explore our comprehensive collection of <strong>precision-engineered components</strong> for gear and engineering applications
+          Explore our comprehensive collection of <strong>precision-engineered components</strong> for oil and gas applications
         </p>
       </header>
       
@@ -70,7 +70,7 @@
                  [attr.aria-label]="'View ' + product.name + ' - Click for details'">
               <figure class="product-image">
                 <img [src]="product.image" 
-                     [alt]="product.name + ' - Premium Gear and Engineering Component by Nikoo Technocast'" 
+                     [alt]="product.name + ' - Premium Oil and Gas Component by Nikoo Technocast'" 
                      loading="lazy"
                      [width]="i % 8 === 0 ? 400 : (i % 8 === 3 || i % 8 === 7) ? 220 : 220"
                      [height]="i % 8 === 0 ? 400 : (i % 8 === 3 || i % 8 === 7) ? 440 : 220">
@@ -110,17 +110,18 @@
             <span class="section-subtitle">ABOUT OUR PRODUCTS</span>
             <h2 class="section-title">
               Precision Engineering for
-              <span class="highlight">Industrial Excellence</span>
+              <span class="highlight">Oil & Gas Industry</span>
             </h2>
             <p class="description">
-              At Nikoo Technocast, we specialize in manufacturing high-quality iron castings for gear
-              and engineering applications. Our components are engineered to deliver exceptional performance,
-              durability, and reliability across diverse industrial sectors.
+              At Nikoo Technocast, we manufacture high-quality iron castings specifically designed for the 
+              oil and gas sector. Our components meet the rigorous demands of upstream, midstream, and 
+              downstream operations with exceptional reliability and performance.
             </p>
             <p class="description">
-              Each component undergoes rigorous quality control to ensure it meets international standards
-              and exceeds customer expectations. We use premium Gray Iron (C.I) and Ductile Iron (S.G)
-              materials for optimal strength and longevity.
+              From butterfly valve discs to hammer unions, each component is precision-engineered to 
+              withstand extreme pressures, temperatures, and corrosive environments found in oil and gas 
+              applications. We use premium Gray Iron (C.I) and Ductile Iron (S.G) materials for optimal 
+              strength and longevity.
             </p>
             <div class="stats-grid">
               <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
@@ -150,31 +151,31 @@
             <ul class="feature-list">
               <li data-aos="fade-left" data-aos-delay="100">
                 <i class="bi bi-check-circle-fill"></i>
-                <span>High-strength Gray and Ductile Iron construction</span>
+                <span>High-pressure and high-temperature resistance</span>
               </li>
               <li data-aos="fade-left" data-aos-delay="150">
                 <i class="bi bi-check-circle-fill"></i>
-                <span>Precision machining for perfect fit and alignment</span>
+                <span>Corrosion-resistant iron castings</span>
               </li>
               <li data-aos="fade-left" data-aos-delay="200">
                 <i class="bi bi-check-circle-fill"></i>
-                <span>Engineered for demanding industrial applications</span>
+                <span>Precision machined for exact specifications</span>
               </li>
               <li data-aos="fade-left" data-aos-delay="250">
                 <i class="bi bi-check-circle-fill"></i>
-                <span>Superior wear and corrosion resistance</span>
+                <span>API and ASME compliant designs</span>
               </li>
               <li data-aos="fade-left" data-aos-delay="300">
                 <i class="bi bi-check-circle-fill"></i>
-                <span>Compliant with international quality standards</span>
+                <span>Suitable for hazardous environments</span>
               </li>
               <li data-aos="fade-left" data-aos-delay="350">
                 <i class="bi bi-check-circle-fill"></i>
-                <span>Custom manufacturing and OEM solutions available</span>
+                <span>Custom sizes and specifications available</span>
               </li>
               <li data-aos="fade-left" data-aos-delay="400">
                 <i class="bi bi-check-circle-fill"></i>
-                <span>Tested for extreme operating conditions</span>
+                <span>Rigorous quality testing and certification</span>
               </li>
             </ul>
           </div>
@@ -188,10 +189,10 @@
     <div class="container">
       <div class="cta-content" data-aos="zoom-in">
         <div class="cta-icon">
-          <i class="bi bi-gear-wide-connected"></i>
+          <i class="bi bi-droplet-half"></i>
         </div>
-        <h3>Need Custom Components?</h3>
-        <p>Contact us for customized solutions tailored to your specific requirements</p>
+        <h3>Need Custom Oil & Gas Components?</h3>
+        <p>Contact us for customized solutions tailored to your specific industry requirements</p>
         <a routerLink="/contact" class="cta-btn">
           <span class="btn-text">Get a Quote</span>
           <i class="bi bi-arrow-right"></i>
@@ -206,7 +207,7 @@
   <div class="modal-content-wrapper" (click)="onModalContentClick($event)">
     <!-- Close Button -->
     <button class="close-button" (click)="closeSlider()" aria-label="Close slider">
-      X
+       X
     </button>
 
     <!-- Modal Content Layout -->
@@ -218,7 +219,7 @@
           <!-- Previous Button -->
           <button class="slider-nav prev" (click)="previousImage(); $event.stopPropagation()"
             aria-label="Previous image">
-            <
+             <
           </button>
 
           <!-- Current Image -->
@@ -226,7 +227,7 @@
 
           <!-- Next Button -->
           <button class="slider-nav next" (click)="nextImage(); $event.stopPropagation()" aria-label="Next image">
-            >
+             >
           </button>
         </div>
 
@@ -249,7 +250,7 @@
               <i class="bi bi-tag"></i>
               Category
             </span>
-            <span class="meta-value">Gear & Engineering Components</span>
+            <span class="meta-value">Oil & Gas Components</span>
           </div>
 
           <div class="product-description-section" *ngIf="currentProduct.description">
@@ -262,8 +263,8 @@
             <ul class="features-list">
               <li><i class="bi bi-check-circle-fill"></i> High-quality iron casting</li>
               <li><i class="bi bi-check-circle-fill"></i> Precision engineered</li>
-              <li><i class="bi bi-check-circle-fill"></i> Industrial-grade construction</li>
-              <li><i class="bi bi-check-circle-fill"></i> Optimal durability</li>
+              <li><i class="bi bi-check-circle-fill"></i> Pressure-rated design</li>
+              <li><i class="bi bi-check-circle-fill"></i> Industry certified</li>
             </ul>
           </div>
 

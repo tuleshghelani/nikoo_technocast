@@ -9,6 +9,7 @@ import { InfrastructureComponent } from './pages/infrastructure/infrastructure.c
 import { AgricultureAndEarthMoversComponent } from './pages/all-product/agriculture-and-earth-movers/agriculture-and-earth-movers.component';
 import { AutomotiveComponentsComponent } from './pages/all-product/automotive-components/automotive-components.component';
 import { GearAndEngineeringComponentsComponent } from './pages/all-product/gear-and-engineering-components/gear-and-engineering-components.component';
+import { OilAndGasComponentsComponent } from './pages/all-product/oil-and-gas-components/oil-and-gas-components.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -21,5 +22,6 @@ export const routes: Routes = [
     { path: 'product/agriculture-and-earth-movers', component: AgricultureAndEarthMoversComponent },
     { path: 'product/automotive-components', component: AutomotiveComponentsComponent },
     { path: 'product/gear-and-engineering-components', component: GearAndEngineeringComponentsComponent },
+    { path: 'product/oil-and-gas-components', component: OilAndGasComponentsComponent },
     { path: '**', redirectTo: '' }
 ];

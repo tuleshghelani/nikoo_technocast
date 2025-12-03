@@ -63,8 +63,8 @@ export class ProductsComponent implements OnInit {
       description: 'High-performance components for the oil and gas industry, engineered to withstand harsh environments, extreme pressure conditions, and demanding operational requirements.',
       applications: ['Oil rigs', 'Refineries', 'Pumping stations', 'Processing facilities', 'Pipeline systems', 'Drilling equipment'],
       materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/Oil & Gas Components/2_ Hammer Union.png',
-      url: '/oil-gas-components'
+      image: 'assets/Oil and Gas Components/2_ Hammer Union.png',
+      url: 'product/oil-and-gas-components'
     }
   ];
 
