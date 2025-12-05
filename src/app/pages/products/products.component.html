@@ -94,10 +94,12 @@
         <div class="col-lg-4 col-md-6" *ngFor="let category of productCategories; let i = index" data-aos="fade-up" [attr.data-aos-delay]="100 + (i * 50)">
           <div class="category-card">
             <div class="category-image">
-              <img [src]="category.image" [alt]="category.title" class="img-fluid">
-              <!-- <div class="category-icon">
-                <i [class]="category.icon"></i>
-              </div> -->
+              <img [src]="category.image" 
+                   [alt]="category.title" 
+                   class="img-fluid"
+                   width="400" 
+                   height="250"
+                   loading="lazy">
             </div>
             <h3>{{category.title}}</h3>
             <p>{{category.description}}</p>

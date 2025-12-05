@@ -33,7 +33,7 @@ export class ProductsComponent implements OnInit {
       description: 'Robust components designed for heavy-duty agricultural and earth moving equipment, built to withstand extreme conditions and heavy loads in demanding environments.',
       applications: ['Excavators', 'Bulldozers', 'Tractors', 'Agricultural machinery', 'Mining equipment', 'Loaders'],
       materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/Agriculture and Earth Movers/Adapter Clamp.png',
+      image: 'assets/Agriculture and Earth Movers/Gear Case Housing.png',
       url: 'product/agriculture-and-earth-movers'
     },
     {
@@ -43,7 +43,7 @@ export class ProductsComponent implements OnInit {
       description: 'Precision-engineered automotive components manufactured to OEM specifications, ensuring optimal performance, durability, and safety compliance across all vehicle types.',
       applications: ['Engine components', 'Transmission parts', 'Differential systems', 'Chassis components', 'Brake systems', 'Steering components'],
       materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/Automotive Components/3 Wheeler Differential Cage.png',
+      image: 'assets/Automotive Components/Commercial Vehicle Crank Shaft.png',
       url: 'product/automotive-components'
     },
     {
@@ -53,7 +53,7 @@ export class ProductsComponent implements OnInit {
       description: 'High-precision gear and engineering components for various industrial and municipal applications, designed for accuracy, reliability, and long service life in critical systems.',
       applications: ['Industrial gearboxes', 'Fire hydrant systems', 'Power transmission', 'Municipal infrastructure', 'Manufacturing equipment', 'Safety systems'],
       materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/Gear and Engineering Components/4 Window Fire Hydrant Housing.png',
+      image: 'assets/Gear and Engineering Components/Bonfiglioli GearBox Case.png',
       url: 'product/gear-and-engineering-components'
     },
     {
@@ -63,7 +63,7 @@ export class ProductsComponent implements OnInit {
       description: 'High-performance components for the oil and gas industry, engineered to withstand harsh environments, extreme pressure conditions, and demanding operational requirements.',
       applications: ['Oil rigs', 'Refineries', 'Pumping stations', 'Processing facilities', 'Pipeline systems', 'Drilling equipment'],
       materials: ['Gray Iron (GI)', 'Ductile Iron (SG)'],
-      image: 'assets/Oil and Gas Components/2_ Hammer Union.png',
+      image: 'assets/Oil and Gas Components/Basket Strainer.png',
       url: 'product/oil-and-gas-components'
     }
   ];
@@ -99,9 +99,10 @@ export class ProductsComponent implements OnInit {
     // Initialize AOS animations only in browser environment
     if (isPlatformBrowser(this.platformId)) {
       AOS.init({
-        duration: 800,
+        duration: 600,
         once: true,
-        offset: 100
+        offset: 10,
+        anchorPlacement: 'top-bottom'
       });
     }
   }

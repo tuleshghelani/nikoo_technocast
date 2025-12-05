@@ -246,10 +246,11 @@ export class AgricultureAndEarthMoversComponent implements OnInit, OnDestroy {
     // Initialize AOS animations only in browser environment
     if (isPlatformBrowser(this.platformId)) {
       AOS.init({
-        duration: 800,
+        duration: 600,
         once: true,
-        offset: 100,
-        delay: 0
+        offset: 10,
+        delay: 0,
+        anchorPlacement: 'top-bottom'
       });
     }
   }

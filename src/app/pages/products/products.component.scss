@@ -43,7 +43,7 @@ $white: #ffffff;
     img {
       width: 100%;
       height: 250px;
-      object-fit: cover;
+      object-fit: contain;
     }
     
     .overlay {
@@ -133,7 +133,7 @@ $white: #ffffff;
       img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         transition: transform 0.5s ease;
       }
       
@@ -284,7 +284,7 @@ $white: #ffffff;
     
     .category-image {
       position: relative;
-      // height: 200px;
+      height: 400px;
       overflow: hidden;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
@@ -304,7 +304,8 @@ $white: #ffffff;
       img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
+        object-position: center;
         transition: transform 0.5s ease;
       }
       
@@ -427,7 +428,7 @@ $white: #ffffff;
       img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
       }
     }
     
