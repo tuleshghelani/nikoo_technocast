@@ -92,14 +92,21 @@ $light-orange: #FED8B1;
       left: 0;
       width: 100%;
       z-index: 2;
+      line-height: 0;
       
       svg {
         display: block;
         width: 100%;
-        height: auto;
+        height: 180px;
         
         path {
           animation: wave 20s linear infinite;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        svg {
+          height: 100px;
         }
       }
     }

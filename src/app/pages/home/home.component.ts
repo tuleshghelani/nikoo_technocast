@@ -124,6 +124,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       
       setTimeout(() => {
         this.initSwiper();
+        this.initThumbnailNavigation();
       }, 0);
     }
   }
@@ -156,8 +157,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     thumbs.forEach((thumb) => {
       thumb.addEventListener('click', (e) => {
         const slideIndex = (e.currentTarget as HTMLElement).getAttribute('data-slide');
-        if (slideIndex && this.swiper) {
-          this.swiper.slideTo(parseInt(slideIndex));
+        if (slideIndex !== null && this.swiper) {
+          // Use slideToLoop for looped swipers
+          this.swiper.slideToLoop(parseInt(slideIndex), 1000);
         }
       });
     });
